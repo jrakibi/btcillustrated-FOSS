@@ -32,4 +32,7 @@ export class ToolsComponent implements OnInit {
     );
   }
 
+  getGradient(color: string): string {
+    return `linear-gradient(145deg, ${color}, #1a2b33)`;
+  }
 }

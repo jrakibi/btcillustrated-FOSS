@@ -1,8 +1,12 @@
 <div class="card-container">
+  <h2 class="tools-title">Essential Tools for Your FOSS Coding Journey</h2>
+
     <div class="card-grid">
       <div class="card" *ngFor="let tool of tools">
         <div class="card-header">
-          <img [src]="tool.headerIconUrl" [alt]="tool.title" class="card-header-icon">
+          <div class="icon-container" [ngStyle]="{'background': getGradient(tool.color)}">
+            <img [src]="tool.headerIconUrl" [alt]="tool.title" class="card-header-icon">
+          </div>
           <button class="visit-btn">
             <i class="fas fa-globe"></i> Visit Website
           </button>
