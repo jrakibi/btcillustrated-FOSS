@@ -1,4 +1,4 @@
-<div class="card-container">
+<div class="card-container" *ngIf="tools; else loadingTemplate">
   <h2 class="tools-title">Essential Tools for Your FOSS Coding Journey</h2>
 
     <div class="card-grid">
@@ -25,3 +25,7 @@
     </div>
   </div>
   
+  <ng-template #loadingTemplate>
+    <div *ngIf="loading" class="loading">Loading...</div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+  </ng-template>

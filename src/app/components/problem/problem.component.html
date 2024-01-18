@@ -1,1 +1,22 @@
-Problem
+<div *ngIf="!loading && !error; else loadingOrErrorTemplate" class="exercise-container">
+    <h2 class="exercise-title">{{ exercise?.title }}</h2>
+    <div class="exercise-description" [innerHTML]="exercise?.description"></div>
+    <div *ngIf="exercise?.hint" class="exercise-hint">
+      <strong>HINT:</strong> <span [innerHTML]="exercise?.hint"></span>
+    </div>
+    <div class="exercise-expected-submissions">
+      <strong>Expected submissions:</strong>
+      <p [innerHTML]="exercise?.expectedSubmissions"></p>
+    </div>
+    <div class="exercise-actions">
+      <button class="start-exercise-btn">Start Exercise</button>
+      <button class="view-solution-btn">View Solution</button>
+      <!-- Add more buttons or UI elements as needed -->
+    </div>
+  </div>
+  
+  <ng-template #loadingOrErrorTemplate>
+    <div *ngIf="loading" class="loading">Loading exercise...</div>
+    <div *ngIf="error" class="error">{{ error }}</div>
+  </ng-template>
+  
