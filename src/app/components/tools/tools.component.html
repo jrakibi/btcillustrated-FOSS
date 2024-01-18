@@ -1,1 +1,23 @@
-<p>tools works!</p>
+<div class="card-container">
+    <div class="card-grid">
+      <div class="card" *ngFor="let tool of tools">
+        <div class="card-header">
+          <img [src]="tool.headerIconUrl" [alt]="tool.title" class="card-header-icon">
+          <button class="visit-btn">
+            <i class="fas fa-globe"></i> Visit Website
+          </button>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ tool.title }}</h5>
+          <p class="card-text">
+            {{ tool.description }}
+          </p>
+        </div>
+        <div class="card-footer">
+          <img [src]="tool.footerIconUrl" [alt]="tool.title" class="card-footer-icon">
+          <span>{{ tool.footerText }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  

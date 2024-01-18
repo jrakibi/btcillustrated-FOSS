@@ -1,0 +1,90 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  grid-gap: 3rem;
+  padding: 1rem; // Ensuring there's padding within the card container.
+  box-sizing: border-box; // Ensures padding does not add to the width.
+}
+
+
+.card {
+  border: 1px solid #eeede1;
+  color: #eeede1;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; // This should already prevent content from spilling out.
+  margin-bottom: 1rem; // Adds space between cards when they wrap.
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem; // Adjusted padding for header
+
+    .fas {
+      font-size: 1rem; // Icon size in the header
+    }
+
+    .visit-btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #111b21;
+      color: #eeede1;
+      font-size: 0.8rem;
+      cursor: pointer;
+
+      .fas {
+        margin-right: 5px;
+      }
+
+      &:hover {
+        background-color: #f8f9fa;
+      }
+    }
+  }
+
+  .card-body {
+    padding: 0 1rem;
+    flex-grow: 1; // Allows the body to fill the space
+
+    .card-title {
+      margin-bottom: 2rem;
+      margin-top: 0;
+      font-size: large;
+    }
+
+    .card-text {
+      font-size: 0.9rem; // Text size for the description
+    }
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem; // Consistent padding with the header
+
+    .fas {
+      font-size: 1.2rem; // Icon size in the footer
+    }
+
+    .footer-text {
+      font-size: 0.9rem; // Text size for the footer
+    }
+  }
+
+  .card-header-icon,
+.card-footer-icon {
+  // Adjust width and height as necessary.
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain; // This prevents distortion of the image.
+}
+
+// ...rest of your styles.
+
+}
