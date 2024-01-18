@@ -1,0 +1,88 @@
+<div class="main-layout">
+    <div class="app-container">
+
+        <!-- History Panel -->
+        <div class="history-panel">
+            <div class="history-header">
+                <!-- <i class="fas fa-arrow-left"></i> -->
+                <span>
+                    History
+
+                </span>
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="15" width="15"
+                        viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                        <path fill="#ffffff"
+                            d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z" />
+                    </svg>
+                </span>
+            </div>
+            <div class="card" *ngFor="let week of weeks">
+                <div class="image-container">
+                    <img src="{{ week.imageUrl }}" alt="Week" onerror="this.style.display='none'" />
+                    <div class="fallback-image" *ngIf="!week.imageUrl">No Image</div>
+                </div>
+                <div class="card-tag">{{week.tag}}</div>
+            </div>
+        </div>
+
+
+        <!-- Workspace -->
+        <div class="workspace">
+            <!-- Header -->
+            <div class="workspace-header">
+                <div class="header-left">
+                    <i class="fas fa-brain"></i>
+                    <span class="mind-map-title">Bitcoin FOSS</span>
+                </div>
+                <div class="header-center">
+                    <!-- Center content if needed -->
+                </div>
+                <div class="header-right">
+                    <!-- Export button -->
+                    <button class="action-button">
+                         Feedback
+                    </button>
+                    <!-- New Generation button -->
+                    <button class="action-button" >
+                        <i class="fas fa-robot" style="margin-right: 10px;"></i> Beta
+                    </button>
+                </div>
+            </div>
+            
+
+            <!-- Graph Container -->
+            <div class="graph-container"
+                [ngClass]="{'align-center': activeWorkspace != Workspace.References, 'align-flex-start': activeWorkspace == Workspace.References}">
+                <app-problem *ngIf="activeWorkspace == Workspace.Problem"></app-problem>
+                <app-coding *ngIf="activeWorkspace == Workspace.Coding"></app-coding>
+                <app-references *ngIf="activeWorkspace == Workspace.References"></app-references>
+                <app-tools *ngIf="activeWorkspace == Workspace.Tools"></app-tools>
+            </div>
+
+
+
+            <!-- Footer/Search bar -->
+            <div class="footer">
+                <div class="card-row">
+                    <!-- These are the card previews -->
+                    <div class="card-container" *ngFor="let workspace of workspaces">
+                        <div class="card card-preview2" (click)="showWorkspace(workspace.tag)">
+                            <img src="{{ workspace.imageUrl }}" alt="Card Image" />
+                            <!-- <div class="card-tag2">{{ workspace.tag }}</div> -->
+
+                        </div>
+                        <div class="card-text">{{ workspace.tag }}</div>
+                    </div>
+                </div>
+                <div class="search-container">
+                    <!-- <div class="box search-bar-ai">
+                        <input type="text" placeholder="Generate a mind map for ..." (focus)="showTags=true">
+                        <i class="fas fa-paper-plane search-icon" (click)="submitData()"></i>
+                    </div> -->
+
+                </div>
+            </div>
+
+        </div>
+    </div>

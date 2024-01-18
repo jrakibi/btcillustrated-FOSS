@@ -1,0 +1,113 @@
+.content-container {
+    display: flex;
+    flex-direction: column;
+    /* margin: 20px; */
+    height: calc(100vh - 270px); /* tempo */
+    box-sizing: border-box; /* Include padding and borders in the element's total width and height */
+
+}
+  
+  .header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #343436;
+    background-color: #1a2b33;
+    color: white;
+  }
+  .exercise-buttons button {
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #111b21;
+    border: 0.6px solid #eeede1;
+    color: white;
+    cursor: pointer;
+    font-family: 'Outfit';
+    font-weight: 200;
+  }
+  
+  .exercise-buttons button:hover {
+    background-color: #4e6a85; /* Or any color you prefer */
+  }
+  
+  .language-selector {
+    display: flex;
+    align-items: center;
+    font-family: 'Outfit';
+    margin-right: 50px;
+  }
+  
+  .language-selector label {
+    margin-right: 10px;
+    color: #eeede1; /* Light color for the label text */
+    font-weight: 200;
+  }
+  
+  .language-selector select {
+    padding: 8px 23px;
+    background-color: #111b21;
+    border: 1px solid #eeede1;
+    color: white;
+    cursor: pointer;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 200;
+    border-radius: 4px;
+  }
+  
+  /* Style the dropdown arrow */
+  .language-selector select {
+    -webkit-appearance: none; /* Remove default style in WebKit browsers */
+    -moz-appearance: none; /* Remove default style in Firefox */
+    appearance: none;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%23eeede1" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>'); /* Dropdown arrow icon */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px; /* Adjust the size of the icon as needed */
+  }
+  
+  /* Remove the focus outline for a cleaner look */
+  .language-selector select:focus {
+    outline: none;
+  }
+  
+  /* Add custom styles for options */
+  .language-selector select option {
+    background-color: #111b21; /* Dark background for options */
+    color: #eeede1; /* Light text color for options */
+  }
+  
+  /* You may need to adjust the styles for different browsers or platforms */
+  
+/* coding-exercise.component.css */
+.coding-exercise-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+  
+  .left-panel {
+    width: 40%;
+    margin-right: 20px;
+  }
+  
+  .right-panel {
+    width: 60%;
+  }
+  
+  .code-editor {
+    border: 1px solid #ccc;
+    height: 400px; /* Adjust height as needed */
+  }
+  
+  .output {
+    border-top: 1px solid #ccc;
+    margin-top: 20px;
+  }
+  
+  /* coding-exercise.component.css */
+ngx-monaco-editor {
+    height: 450px; /* Set the height of the editor */
+  }
+  

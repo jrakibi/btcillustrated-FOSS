@@ -1,0 +1,50 @@
+<div class="content-container">
+    <div class="header">
+        <div class="exercise-buttons">
+            <button (click)="loadExercise('easy')">Exercise 1 Easy</button>
+            <button (click)="loadExercise('medium')">Exercise 2 Medium</button>
+            <button (click)="loadExercise('hard')">Exercise 3 Hard</button>
+        </div>
+        <div class="language-selector">
+            <label for="language">Language:</label>
+            <select id="language" [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
+                <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
+            </select>
+        </div>
+    </div>
+    <div class="coding-exercise-container">
+        <div class="left-panel">
+            <!-- Task description section with static placeholder content -->
+            <div class="task-description">
+                <h2>Task Description</h2>
+                <p>
+                    A binary number is represented as a series of 0s and 1s. In this
+                    challenge, the series will be in the form of a singly-linked list. Each
+                    node instance, a LinkedListNode, has a value, data, and a pointer to the
+                    next node, next. Given a reference to the head of a singly-linked list,
+                    convert the binary number represented to a decimal number.
+                </p>
+            </div>
+            <!-- Example section with static placeholder content -->
+            <div class="example">
+                <h3>Example</h3>
+                <p>
+                    Linked list corresponding to the binary number (010011)₂ or (19)₁₀.
+                </p>
+                <img src="linked-list-example.png" alt="Linked List Example" />
+            </div>
+        </div>
+        <div class="right-panel">
+            <!-- Code editor section with ngx-monaco-editor -->
+            <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" (onInit)="onEditorInit($event)">
+            </ngx-monaco-editor>
+            <!-- Output section for displaying results -->
+            <div class="output">
+                <h3>Output</h3>
+                <pre>fdfdf</pre>
+            </div>
+        </div>
+    </div>
+
+
+</div>
