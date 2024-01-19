@@ -1,4 +1,4 @@
-<div *ngIf="!loading && !error; else loadingOrErrorTemplate" class="exercise-container">
+<!-- <div *ngIf="!loading && !error; else loadingOrErrorTemplate" class="exercise-container">
     <h2 class="exercise-title">{{ exercise?.title }}</h2>
     <div class="exercise-description" [innerHTML]="exercise?.description"></div>
     <div *ngIf="exercise?.hint" class="exercise-hint">
@@ -11,12 +11,25 @@
     <div class="exercise-actions">
       <button class="start-exercise-btn">Start Exercise</button>
       <button class="view-solution-btn">View Solution</button>
-      <!-- Add more buttons or UI elements as needed -->
     </div>
   </div>
   
   <ng-template #loadingOrErrorTemplate>
     <div *ngIf="loading" class="loading">Loading exercise...</div>
     <div *ngIf="error" class="error">{{ error }}</div>
+  </ng-template>
+   -->
+
+   <div *ngIf="readmeHtml; else loadingTemplate" class="readme-content" [innerHTML]="readmeHtml">
+    <!-- The README content will be rendered here -->
+  </div>
+  
+  <ng-template #loadingTemplate>
+    <div *ngIf="loading" class="loading-indicator">
+      Loading README...
+    </div>
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
   </ng-template>
   
