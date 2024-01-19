@@ -207,7 +207,6 @@
     position: relative;
     flex-grow: 1; /* Allow the graph container to take up the remaining space */
     overflow: auto; /* Add scroll only if needed */
-    display: flex;
     justify-content: center;
     background-color: #111b21; /* Same as app-container for consistency */
 }

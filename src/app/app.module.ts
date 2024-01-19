@@ -20,6 +20,7 @@ import { MonacoEditorModule } from 'ngx-monaco-editor';
 import { CodingComponent } from './components/coding/coding.component';
 import { ToolsComponent } from './components/tools/tools.component';
 import { ReferencesComponent } from './components/references/references.component';
+import { VisualsComponent } from './components/visuals/visuals.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ReferencesComponent } from './components/references/references.componen
     ProblemComponent,
     CodingComponent,
     ToolsComponent,
-    ReferencesComponent
+    ReferencesComponent,
+    VisualsComponent
   ],
   imports: [
     BrowserModule,

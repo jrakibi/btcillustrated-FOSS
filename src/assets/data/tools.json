@@ -1,0 +1,61 @@
+[
+    {
+      "icon": "fa-cog",
+      "title": "Bitcoin Script IDE",
+      "description": "A Bitcoin Script IDE to facilitate the learning, testing, and teaching of Bitcoin Script.",
+      "footerText": "@Siminchen",
+      "headerIconUrl": "assets/tools/icons/bitcoinIDE.png",
+      "footerIconUrl": "assets/tools/icons/bitcoinIDE_builder.png",
+      "authorLink": "",
+      "projectLink": "",
+      "color": "#f79322"
+    },
+    {
+      "icon": "fa-cog",
+      "title": "Opcode Explained",
+      "description": "Documenting bitcoin opcodes, one at a time.",
+      "footerText": "@thunderbiscuit",
+      "headerIconUrl": "assets/tools/icons/opcodeExplained.png",
+      "footerIconUrl": "assets/tools/icons/opcodeExplained_builder.jpeg",
+      "authorLink": "",
+      "projectLink": "",
+      "color": "#55B685"
+    },
+    {
+      "icon": "fa-cog",
+      "title": "ChatBTC",
+      "description": "Learn about bitcoin technology and history",
+      "footerText": "@The_Bitcoin_Dev_Project",
+      "headerIconUrl": "assets/tools/icons/chatbtc.png",
+      "footerIconUrl": "assets/tools/icons/chatbtc_builder.png",
+      "authorLink": "",
+      "projectLink": "",
+      "color": "#EBB063"
+    },
+    {
+      "icon": "fa-cog",
+      "title": "AI Tutor",
+      "description": "Your Bitcoin AI tutor ",
+      "footerText": "@BTCillustrated",
+      "headerIconUrl": "assets/tools/icons/btcillustrated.png",
+      "footerIconUrl": "assets/tools/icons/btcillustrated_builder.jpeg",
+      "authorLink": "",
+      "projectLink": "",
+      "color": "#fcdddd"
+    },
+    {
+      "icon": "fa-cog",
+      "title": "Tx Color Coder",
+      "description": "A tool for understanding bitcoin transaction serialization",
+      "footerText": "@DariusParvin",
+      "headerIconUrl": "assets/tools/icons/txColorCoder.png",
+      "footerIconUrl": "assets/tools/icons/txColorCoder_builder.jpeg",
+      "authorLink": "https://github.com/DariusParvin",
+      "projectLink": "https://github.com/DariusParvin/bitcoin-tx-color-coder",
+      "color": "#000"
+    }
+
+    
+
+  ]
+  

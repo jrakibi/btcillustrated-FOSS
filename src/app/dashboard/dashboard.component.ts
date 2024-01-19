@@ -3,7 +3,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Edge, GraphComponent, Layout, Node } from '@swimlane/ngx-graph';
-import { Workspace, Week } from 'src/app/interfaces/workspace.interface';
+import { Workspace, Week } from 'src/app/models/workspace.model';
 import { AppContext } from 'src/app/services/app-context';
 import { OpenaiService } from 'src/app/services/open-ai.service';
 import { WorkspaceEnum } from '../enums/workspace.enum';
@@ -25,7 +25,7 @@ export class DashboardComponent implements OnInit {
   public jsonData: any; // JSON data property
 
   Workspace = WorkspaceEnum
-  activeWorkspace: WorkspaceEnum = WorkspaceEnum.Coding
+  activeWorkspace: WorkspaceEnum = WorkspaceEnum.Tools
   // Constructor
   constructor(
     public dialog: MatDialog,
@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
   // Lifecycle hooks
   ngOnInit(): void {
     
-    this.activeWorkspace = this.appContext.retrieveActiveWorkspace() ?? WorkspaceEnum.Coding
+    this.activeWorkspace = this.appContext.retrieveActiveWorkspace() ?? WorkspaceEnum.Tools
     this.showWorkspace(this.activeWorkspace)
       this.weeks = [
         {
@@ -74,6 +74,11 @@ export class DashboardComponent implements OnInit {
           title: 'Coding',
           imageUrl: 'assets/btcIllustrated/icons/code.png',
           tag: WorkspaceEnum.Coding
+        },
+        {
+          title: 'Visuals',
+          imageUrl: 'assets/btcIllustrated/icons/visuals.png',
+          tag: WorkspaceEnum.Visuals
         },
         {
           title: 'References',
