@@ -1,9 +1,32 @@
+/* In markdown-dark-theme.css */
+.markdown-body {
+    background-color: #111b21; /* GitHub dark mode background */
+    color: #c9d1d9; /* GitHub dark mode text */
+  }
+  
+  .markdown-body * {
+    color: #c9d1d9; /* Ensure all text is visible on dark background */
+  }
+  
+  /* You might need to override other specific elements, like links, code blocks, etc. */
+  .markdown-body a {
+    color: #58a6ff; /* GitHub dark mode link color */
+  }
+  
+  .markdown-body code {
+    background-color: #161b22; /* Slightly lighter than the background for contrast */
+    color: #c9d1d9;
+  }
+  
+  /* Add more overrides for other elements as needed */
+  
 .exercise-container {
     background-color: #111b21;
     color: #f8f9fa;
     border-radius: 8px;
     padding: 20px;
     margin: auto;
+    margin-top: 60px;
     width: 70%;
     .exercise-title {
       font-size: 40px;

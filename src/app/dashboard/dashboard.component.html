@@ -17,13 +17,21 @@
                     </svg>
                 </span>
             </div>
-            <div class="card" *ngFor="let week of weeks">
+            <div class="card" *ngFor="let week of weeks; let i = index" (click)="navigateToWorkspace(week)">
                 <div class="image-container">
-                    <img src="{{ week.imageUrl }}" alt="Week" onerror="this.style.display='none'" />
-                    <div class="fallback-image" *ngIf="!week.imageUrl">No Image</div>
+                  <img src="{{ week.imageUrl }}" alt="Week" onerror="this.style.display='none'" />
+                  <div *ngIf="!week.imageUrl" class="fallback-image">No Image</div>
+                </div>
+                <!-- Lock overlay for locked modules -->
+                <div *ngIf="i > 0" class="locked-overlay">
+                  <!-- Replace with an img tag pointing to your lock image -->
+                  <img src="assets/dashboard/lock.png" alt="Locked" />
                 </div>
                 <div class="card-tag">{{week.tag}}</div>
-            </div>
+              </div>
+              
+
+
         </div>
 
 
@@ -41,15 +49,15 @@
                 <div class="header-right">
                     <!-- Export button -->
                     <button class="action-button">
-                         Feedback
+                        Feedback
                     </button>
                     <!-- New Generation button -->
-                    <button class="action-button" >
+                    <button class="action-button">
                         <i class="fas fa-robot" style="margin-right: 10px;"></i> Beta
                     </button>
                 </div>
             </div>
-            
+
 
             <!-- Graph Container -->
             <div class="graph-container"

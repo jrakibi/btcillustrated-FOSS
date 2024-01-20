@@ -4,6 +4,7 @@ export interface Week {
     title: string;
     imageUrl: string;
     tag: string;
+    locked: boolean
 }
 export interface Workspace {
     title: string;

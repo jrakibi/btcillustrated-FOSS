@@ -20,8 +20,7 @@
   </ng-template>
    -->
 
-   <div *ngIf="readmeHtml; else loadingTemplate" class="readme-content" [innerHTML]="readmeHtml">
-    <!-- The README content will be rendered here -->
+   <!-- <div *ngIf="readmeHtml; else loadingTemplate" class="readme-content" [innerHTML]="readmeHtml">
   </div>
   
   <ng-template #loadingTemplate>
@@ -32,4 +31,19 @@
       {{ error }}
     </div>
   </ng-template>
-  
+   -->
+<div class="exercise-container">
+    <div *ngIf="readmeHtml; else loadingTemplate" class="markdown-body" [innerHTML]="readmeHtml">
+        <!-- The README content will be rendered here with GitHub-like styling -->
+      </div>
+      
+      <ng-template #loadingTemplate>
+        <div *ngIf="loading" class="loading-indicator">
+          Loading README...
+        </div>
+        <div *ngIf="error" class="error-message">
+          {{ error }}
+        </div>
+      </ng-template>
+      
+</div>

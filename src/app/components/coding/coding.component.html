@@ -1,3 +1,6 @@
+
+
+
 <div class="content-container">
     <div class="header">
         <div class="exercise-buttons">
@@ -13,27 +16,40 @@
         </div>
     </div>
     <div class="coding-exercise-container">
-        <div class="left-panel">
-            <!-- Task description section with static placeholder content -->
-            <div class="task-description">
-                <h2>Task Description</h2>
-                <p>
-                    A binary number is represented as a series of 0s and 1s. In this
-                    challenge, the series will be in the form of a singly-linked list. Each
-                    node instance, a LinkedListNode, has a value, data, and a pointer to the
-                    next node, next. Given a reference to the head of a singly-linked list,
-                    convert the binary number represented to a decimal number.
-                </p>
-            </div>
-            <!-- Example section with static placeholder content -->
-            <div class="example">
-                <h3>Example</h3>
-                <p>
-                    Linked list corresponding to the binary number (010011)₂ or (19)₁₀.
-                </p>
-                <img src="linked-list-example.png" alt="Linked List Example" />
-            </div>
-        </div>
+<!-- ...existing template content -->
+
+<div class="left-panel">
+    <!-- Task description section with dynamic content -->
+    <div class="task-description">
+      <h2>{{ currentExercise.title }}</h2>
+      <p>{{ currentExercise.detailedDescription }}</p>
+      <div *ngFor="let hint of currentExercise.hints">
+        <p><strong>Hint:</strong> {{ hint }}</p>
+      </div>
+    </div>
+    <!-- RPC Information -->
+    <div *ngIf="currentExercise.rpcInformation">
+      <h3>RPC Information</h3>
+      <p><strong>Server:</strong> {{ currentExercise.rpcInformation.rpcServer }}</p>
+      <p><strong>Username:</strong> {{ currentExercise.rpcInformation.rpcCredentials.username }}</p>
+      <p><strong>Password:</strong> {{ currentExercise.rpcInformation.rpcCredentials.password }}</p>
+      <div *ngFor="let example of currentExercise.rpcInformation.usageExamples">
+        <p><strong>Usage Example:</strong> <code>{{ example }}</code></p>
+      </div>
+    </div>
+    <!-- Scavenger Hunt Questions -->
+    <div *ngIf="currentExercise.scavengerHuntQuestions">
+      <h3>Scavenger Hunt Questions</h3>
+      <ul>
+        <li *ngFor="let question of currentExercise.scavengerHuntQuestions">
+          <strong>{{ question.questionId }}:</strong> {{ question.question }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- ...rest of the template -->
+  
         <div class="right-panel">
             <!-- Code editor section with ngx-monaco-editor -->
             <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" (onInit)="onEditorInit($event)">
@@ -41,10 +57,8 @@
             <!-- Output section for displaying results -->
             <div class="output">
                 <h3>Output</h3>
-                <pre>fdfdf</pre>
+                <pre>TEts</pre> <!-- Make sure you have an 'output' property in your component -->
             </div>
         </div>
     </div>
-
-
 </div>

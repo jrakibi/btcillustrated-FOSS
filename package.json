@@ -22,6 +22,7 @@
     "@fortawesome/fontawesome-free": "^6.5.1",
     "@swimlane/ngx-graph": "^8.2.3",
     "d3": "^7.8.5",
+    "github-markdown-css": "^5.5.0",
     "marked": "^11.1.1",
     "monaco-editor": "^0.24.0",
     "ng-animated-border": "^2.0.0",

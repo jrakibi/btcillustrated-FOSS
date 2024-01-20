@@ -49,17 +49,20 @@ export class DashboardComponent implements OnInit {
         {
           title: 'Week 1',
           imageUrl: 'assets/btcIllustrated/mindmap/test.png',
-          tag: 'Week 1'
+          tag: 'Week 1',
+          locked: false
         },
         {
           title: 'Week 2',
           imageUrl: 'assets/btcIllustrated/mindmap/test2.png',
-          tag: 'Week 2'
+          tag: 'Week 2',
+          locked: true
         },
         {
           title: 'Week 3',
           imageUrl: 'assets/btcIllustrated/mindmap/test3.png',
-          tag: 'Week 3'
+          tag: 'Week 3',
+          locked: true
         }
       ];
 
@@ -109,5 +112,20 @@ export class DashboardComponent implements OnInit {
     this.activeWorkspace = workspace
     this.appContext.storeActiveWorkspace(this.activeWorkspace)
   }
+
+  navigateToWorkspace(week: Week) {
+    // If the week is locked, return early and do nothing
+    if (week.locked) {
+      return;
+    }
+    
+    
+    this.activeWorkspace = this.Workspace.Coding
+    this.appContext.storeActiveWorkspace(this.activeWorkspace)
+    // Navigate to the 'app-problem' workspace or handle as needed
+    // Assuming 'app-problem' is a route you have set up in your routing module
+    this.router.navigate(['/app-problem']);
+  }
+  
 
 }
