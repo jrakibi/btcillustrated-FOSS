@@ -10,8 +10,10 @@
     {
       "id": "001",
       "title": "Block Hash Inquiry",
+      "isLink": false,
       "content": "What is the hash of block 654,321?",
       "answerType": "code",
+      "expectedOutput": "000000000000000000058452bbe379ad4364fe8fda68c45e299979b492858095",
       "codeMetadata": {
         "language": "shell",
         "starterCode": "#!/bin/bash\n# What is the hash of block 654,321?",
@@ -21,8 +23,11 @@
     {
       "id": "002",
       "title": "Signature Verification",
+      "isLink": true,
+      "contentPath": "assets/data/week0/coding/exercise2.md",
       "content": "Verify the signature by this address over this message...",
       "answerType": "code",
+      "expectedOutput": "false",
       "codeMetadata": {
         "language": "shell",
         "starterCode": "#!/bin/bash\n# (true / false) Verify the signature by this address over this message:\n# address: '1E9YwDtYf9R29ekNAfbV7MvB4LNv7v3fGa'\n# message: '1E9YwDtYf9R29ekNAfbV7MvB4LNv7v3fGa'\n# signature: 'HCsBcgB+Wcm8kOGMH8IpNeg0H4gjCrlqwDf/GlSXphZGBYxm0QkKEPhh9DTJRp2IDNUhVr0FhP9qCqo2W0recNM='",
@@ -34,6 +39,7 @@
       "title": "Output Count",
       "content": "How many new outputs were created by block 123,456?",
       "answerType": "code",
+      "expectedOutput": "24",
       "codeMetadata": {
         "language": "shell",
         "validatorFunction": "validateOutputCount",
@@ -43,8 +49,10 @@
     {
       "id": "004",
       "title": "Compute Taproot Address",
-      "content": "Using descriptors, compute the taproot address at index 100 derived from this extended public key...",
+      "isLink": true,
+      "contentPath": "assets/data/week0/coding/exercise4.md",
       "answerType": "code",
+      "expectedOutput": "bc1p3yrtpvv6czx63h2sxwmeep8q98h94w4288fc4cvrkqephalydfgszgacf9",
       "codeMetadata": {
         "language": "shell",
         "validatorFunction": "validateTaprootAddress",
@@ -56,6 +64,7 @@
       "title": "Create Multisig Address",
       "content": "Create a 1-of-4 P2SH multisig address from the public keys in the four inputs of this transaction...",
       "answerType": "code",
+      "expectedOutput": "3GyWg1CCD3RDpbwCbuk9TTRQptkRfczDz8",
       "codeMetadata": {
         "language": "shell",
         "validatorFunction": "validateMultisigAddress",
@@ -67,6 +76,7 @@
       "title": "Find Coinbase Spender",
       "content": "Which transaction in block 257,343 spends the coinbase output of block 256,128?",
       "answerType": "code",
+      "expectedOutput": "c54714cb1373c2e3725261fe201f267280e21350bdf2df505da8483a6a4805fc",
       "codeMetadata": {
         "language": "shell",
         "validatorFunction": "validateCoinbaseSpender",
@@ -78,6 +88,7 @@
       "title": "Find Unspent Output",
       "content": "Only one single output remains unspent from block 123,321. What address was it sent to?",
       "answerType": "code",
+      "expectedOutput": "1FPDNNmgwEnKuF7GQzSqUcVQdzSRhz4pgX",
       "codeMetadata": {
         "language": "shell",
         "validatorFunction": "validateUnspentOutput",
@@ -87,8 +98,10 @@
     {
       "id": "008",
       "title": "Identify Signer",
-      "content": "Which public key signed input 0 in this transaction?",
+      "isLink": true,
+      "contentPath": "assets/data/week0/coding/exercise8.md",
       "answerType": "code",
+      "expectedOutput": "025d524ac7ec6501d018d322334f142c7c11aa24b9cffec03161eca35a1e32a71f",
       "codeMetadata": {
         "language": "shell",
         "validatorFunction": "validateSigner",

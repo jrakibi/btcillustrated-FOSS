@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Exercise, Question } from 'src/app/models/exercise.model';
 import { DataService } from 'src/app/services/data.service';
+import * as marked from 'marked';
 
 @Component({
   selector: 'app-coding',
@@ -19,10 +21,12 @@ export class CodingComponent implements OnInit {
   loading: boolean = true; // Initialize as true to show the loading indicator
   currentExercise: Exercise | null = null
   error: string = '';
-
+  readmeHtml!: string ; // This will hold the HTML content for the README
+  showOutput: boolean = false; 
 
   constructor(
-    private dataService: DataService
+    private dataService: DataService,
+    private http: HttpClient,
   ) {
     // Initialize the currentExercise with the first exercise as a default
     // this.currentExercise = this.exercises[0];
@@ -63,9 +67,29 @@ export class CodingComponent implements OnInit {
       this.selectedLanguage = question.codeMetadata.language;
       this.editorOptions = { ...this.editorOptions, language: this.selectedLanguage };
     }
+    if (question.isLink && question.contentPath) {
+      this.loadReadme(question.contentPath); // Load README if needed
+    }
     // Clear previous output
     this.output = '';
     console.log(`Loading question: ${question.id}`);
   }
   
+
+  loadReadme(path: string) {
+    if (!path) return;
+    this.http.get(path, { responseType: 'text' }).subscribe(
+      markdown => {
+        this.readmeHtml = marked.parse(markdown) as string;
+      },
+      error => {
+        console.error('There was an error fetching the README', error);
+        this.readmeHtml = ''; // Reset the content on error
+      }
+    );
+  }
+
+  toggleOutputVisibility() {
+    this.showOutput = !this.showOutput; // Toggle the boolean value
+  }
 }

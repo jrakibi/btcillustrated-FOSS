@@ -13,19 +13,38 @@
     </div>
   </div>
   <div class="coding-exercise-container">
-    <div class="left-panel" *ngIf="currentQuestion" >
+    <div class="left-panel" *ngIf="currentQuestion">
       <div class="task-description">
         <h2>{{ currentQuestion.title }}</h2>
-        <p><strong>Question:</strong> {{ currentQuestion.content }}</p>
+        <p *ngIf="!currentQuestion.isLink">
+          <strong>Question:</strong> {{ currentQuestion.content }}
+        </p>
+        <div *ngIf="currentQuestion.isLink">
+          <strong>Question:</strong>
+          <div class="markdown-body" [innerHTML]="readmeHtml">
+            <!-- README content will be rendered here -->
+          </div>
+        </div>
+
+        <div *ngIf="currentQuestion.isLink && !readmeHtml" class="loading-indicator">
+          Loading README...
+        </div>
       </div>
     </div>
     <div class="right-panel">
       <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" (onInit)="onEditorInit($event)">
       </ngx-monaco-editor>
+      <span class="execution-disclaimer">* Code execution not currently available. Feature in development.</span>
       <div class="output">
-        <h3>Output</h3>
-        <pre>{{ output }}</pre> <!-- Bind the 'output' property from your component -->
+        <h3>Expected Output</h3>
+        <div class="toggle-container">
+          <input type="checkbox" id="toggleOutputCheckbox" (change)="toggleOutputVisibility()" hidden>
+          <label for="toggleOutputCheckbox" class="toggle-label">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <pre [class.blurred]="!showOutput">{{ currentQuestion?.expectedOutput }}</pre>
       </div>
     </div>
-  </div>
+    
 </div>
