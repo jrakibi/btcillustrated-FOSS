@@ -88,7 +88,7 @@ export class VisualsComponent {
   }
 
   loadIllustrations(): void {
-    this.illustrationService.getIllustrationsByIds([5, 76, 238]).subscribe(
+    this.illustrationService.getIllustrationsByIds([5, 238]).subscribe(
       (data: Illustration[]) => {
         this.illustrations = data.map(illustration => ({
           ...illustration,

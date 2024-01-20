@@ -84,20 +84,19 @@ export class ProblemComponent implements OnInit {
   }
 
   loadReadme() {
-    const readmeUrl = 'https://raw.githubusercontent.com/chaincodelabs/rpc-scavenger-hunt/main/README.md';
-    this.http.get(readmeUrl, { responseType: 'text' }).subscribe(
+    const readmePath = 'assets/weeks/week0/readme'; // Path to your local asset
+    this.http.get(readmePath, { responseType: 'text' }).subscribe(
       markdown => {
-        // Use marked to convert markdown to html
-        const html = marked.parse(markdown) as string; // Cast the return value as string
-        // Sanitize the html string and bypass security trust
+        const html = marked.parse(markdown) as string; // Convert markdown to HTML
         this.readmeHtml = this.sanitizer.bypassSecurityTrustHtml(html);
-        this.loading = false; // Set loading to false after the content is loaded
+        this.loading = false;
       },
       error => {
         console.error('There was an error fetching the README', error);
-        this.error = 'There was an error fetching the README'; // Set an error message
-        this.loading = false; // Ensure loading is set to false on error as well
+        this.error = 'There was an error fetching the README';
+        this.loading = false;
       }
     );
   }
+
 }

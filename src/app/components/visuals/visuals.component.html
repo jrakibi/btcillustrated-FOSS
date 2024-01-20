@@ -18,7 +18,7 @@
                     <!-- Card for each image and title -->
                     <div class="image-card" (click)="chooseIlllustration(illustration)" >
                       <h3 class="image-title">{{illustration.title}}</h3>
-                      <img [src]="illustration.src" alt="Collection Image"  />
+                      <img [src]="illustration.imagePaths[0]" alt="Collection Image"  />
                       <!-- <img [src]="illustration.src" alt="Collection Image" (click)="selectImage(i)" (load)="onLoadImage(image)" [hidden]="!image.loaded" /> -->
                     </div>
                   </ng-container>
