@@ -21,6 +21,7 @@ import { CodingComponent } from './components/coding/coding.component';
 import { ToolsComponent } from './components/tools/tools.component';
 import { ReferencesComponent } from './components/references/references.component';
 import { VisualsComponent } from './components/visuals/visuals.component';
+import { TwitterHandleComponent } from './components/shared/twitter-handle/twitter-handle.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { VisualsComponent } from './components/visuals/visuals.component';
     CodingComponent,
     ToolsComponent,
     ReferencesComponent,
-    VisualsComponent
+    VisualsComponent,
+    TwitterHandleComponent
   ],
   imports: [
     BrowserModule,

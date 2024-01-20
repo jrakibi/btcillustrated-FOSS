@@ -751,7 +751,7 @@
 
 /* Add a scrollbar design if needed */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -759,7 +759,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ffc107; /* Accent color for scrollbar */
+  background-color: #eeede1; /* Accent color for scrollbar */
   border-radius: 10px;
 }
 

@@ -127,5 +127,10 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['/app-problem']);
   }
   
+  public showHistory: boolean = true;
 
+  toggleHistory() {
+    debugger
+    this.showHistory = !this.showHistory;
+  }
 }

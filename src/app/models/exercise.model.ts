@@ -12,7 +12,6 @@ export interface Exercise {
     submissionRequirements?: SubmissionRequirement[]; // Details on what needs to be submitted
     rpcInformation?: RPCInformation; // For exercises requiring Bitcoin node RPC interaction
     scavengerHuntQuestions?: ScavengerHuntQuestion[]; // Specific to scavenger hunts
-    lightningNetworkDetails?: LightningNetworkDetails; // Specific to lightning network exercises
     walletProjectDetails?: WalletProjectDetails; // Specific to wallet projects
     evaluationCriteria?: string; // How the submission will be evaluated
     templateFiles?: string[]; // Any starter template files provided
@@ -43,13 +42,6 @@ export interface Exercise {
     question: string;
     solutionType: 'SingleCommand' | 'MultipleCommands' | 'ScriptWithLogic';
     additionalInfo?: string;
-  }
-  
-  export interface LightningNetworkDetails {
-    nodeAddress: string;
-    nodePubkey: string;
-    setupConfig: string;
-    invoice: string;
   }
   
   export interface WalletProjectDetails {

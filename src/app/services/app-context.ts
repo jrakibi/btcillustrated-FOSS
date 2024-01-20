@@ -9,7 +9,7 @@ import { WorkspaceEnum } from '../enums/workspace.enum';
 export class AppContext {
   private apiUrl = `${environment.apiUrl}/categories`;
   public topic: string = "test";
-  public activeWorkspace: WorkspaceEnum = WorkspaceEnum.Visuals;
+  public activeWorkspace: WorkspaceEnum = WorkspaceEnum.References;
 
   constructor() { }
 

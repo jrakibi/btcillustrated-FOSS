@@ -34,7 +34,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 16px;
-    font-size: 15px;
+    font-size: 16px;
+    height: 5vh;
   }
   
   .history-header .fas {
@@ -695,4 +696,34 @@
   background-color: #eeede14d;
     border: 0px solid #eeede1;
     border-radius: 50px;
+}
+
+.history-toggle {
+  position: fixed; /* or absolute */
+  top: 10px; /* Adjust as per your header's height */
+  left: 10px; /* Or right, depending on where you want the toggle */
+  z-index: 1000; /* Ensure it's above other elements */
+  cursor: pointer;
+}
+
+/* When the history panel is hidden, add some margin or padding to the main content area */
+.workspace {
+  transition: margin-left .3s; /* Smooth transition for the sliding effect */
+}
+
+.workspace.expand {
+  margin-left: 80px; /* Adjust the value to the width of your toggle button */
+}
+
+/* Now, the hide class only needs to hide the panel, not the toggle */
+.hide {
+  width: 0;
+  display: none;
+
+}
+
+.arrow-right {
+  transform: rotate(180deg);
+  margin-right: 20px;
+  cursor: pointer;
 }

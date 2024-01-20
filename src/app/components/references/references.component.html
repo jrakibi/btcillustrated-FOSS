@@ -1,1 +1,22 @@
-References
+<div class="resource-container">
+    <div class="references-header">Visuals for Bitcoin</div>
+
+    <div class="category-tabs">
+        <div class="cat-but">
+
+            <button (click)="filterResources('all')">All</button>
+            <button (click)="filterResources('video')">Videos</button>
+            <button (click)="filterResources('article')">Articles</button>
+            <button (click)="filterResources('book')">Books</button>
+        </div>
+    </div>
+    <div class="resource-grid">
+      <div *ngFor="let resource of filteredResources" class="resource-card">
+        <img [src]="resource.imageUrl" [alt]="resource.title">
+        <h3>{{ resource.title }}</h3>
+        <p>{{ resource.description }}</p>
+        <a [href]="resource.url" target="_blank">Learn More</a>
+      </div>
+    </div>
+  </div>
+  
