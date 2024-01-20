@@ -1,6 +1,29 @@
-{
-  "title": "RPC Scavenger Hunt",
-  "description": "These exercises require a synced mainnet full node with the transaction index active (-txindex=1). Chaincode Labs can provide credentials to a hosted node with an authenticated proxy so students can complete the exercises using bitcoin-cli locally but without needing to sync a full node themselves. To use the proxy you must have bitcoin-cli installed. It is part of the package you can download from bitcoincore.org. These packages obviously include the Bitcoin Core daemon as well, but you do not need to run it or sync a mainnet node yourself for this exercise.",
-  "hint": "Use bitcoin-cli help and bitcoin-cli help <command name> to learn what commands are available and what they do.",
-  "expectedSubmissions": "Every question must be answered by providing a bash script that executes bitcoin-cli commands. The commands should be straightforward and require only basic bash operators."
-}
+[
+  {
+    "title": "RPC Scavenger Hunt",
+    "overview": "For this exercise, you'll need a synced mainnet full node with the transaction index active (-txindex=1). You should have bitcoin-cli installed, which is part of the Bitcoin Core package available from bitcoincore.org. Although this package includes the Bitcoin Core daemon, you don't need to run or sync a mainnet node specifically for this exercise if you already have access to one.",
+    "sections": [
+      {
+        "title":"Setting Up",
+        "isLink": true,
+        "path": "assets/weeks/week0/problems/readme1"
+      },
+      {
+        "title":"What You Need to Do",
+        "isLink": true,
+        "path": "assets/weeks/week0/problems/readme2"
+      }
+    ]
+  },
+  {
+    "title": "RPC Scavenger Hunt",
+    "overview": "These exercises require a synced mainnet full node with the transaction index active (-txindex=1). Chaincode Labs can provide credentials to a hosted node with an authenticated proxy so students can complete the exercises using bitcoin-cli locally but without needing to sync a full node themselves. To use the proxy you must have bitcoin-cli installed. It is part of the package you can download from bitcoincore.org. These packages obviously include the Bitcoin Core daemon as well, but you do not need to run it or sync a mainnet node yourself for this exercise.",
+    "sections": [
+      {
+        "title":"RPC Scavenger Hunt",
+        "isLink": false,
+        "content": "waaak waaaaaaak csdcnksncknksnc"
+      }
+    ]
+  }  
+]

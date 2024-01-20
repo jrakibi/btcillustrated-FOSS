@@ -1,64 +1,31 @@
-
-
-
 <div class="content-container">
-    <div class="header">
-        <div class="exercise-buttons">
-            <button (click)="loadExercise('easy')">Exercise 1 Easy</button>
-            <button (click)="loadExercise('medium')">Exercise 2 Medium</button>
-            <button (click)="loadExercise('hard')">Exercise 3 Hard</button>
-        </div>
-        <div class="language-selector">
-            <label for="language">Language:</label>
-            <select id="language" [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
-                <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
-            </select>
-        </div>
+  <div class="header">
+    <div class="exercise-buttons">
+      <button *ngFor="let question of currentExercise?.questions; let i = index" (click)="loadQuestion(question)">
+        Question {{ i + 1 }}
+      </button>
     </div>
-    <div class="coding-exercise-container">
-<!-- ...existing template content -->
-
-<div class="left-panel">
-    <!-- Task description section with dynamic content -->
-    <div class="task-description">
-      <h2>{{ currentExercise.title }}</h2>
-      <p>{{ currentExercise.detailedDescription }}</p>
-      <div *ngFor="let hint of currentExercise.hints">
-        <p><strong>Hint:</strong> {{ hint }}</p>
-      </div>
-    </div>
-    <!-- RPC Information -->
-    <div *ngIf="currentExercise.rpcInformation">
-      <h3>RPC Information</h3>
-      <p><strong>Server:</strong> {{ currentExercise.rpcInformation.rpcServer }}</p>
-      <p><strong>Username:</strong> {{ currentExercise.rpcInformation.rpcCredentials.username }}</p>
-      <p><strong>Password:</strong> {{ currentExercise.rpcInformation.rpcCredentials.password }}</p>
-      <div *ngFor="let example of currentExercise.rpcInformation.usageExamples">
-        <p><strong>Usage Example:</strong> <code>{{ example }}</code></p>
-      </div>
-    </div>
-    <!-- Scavenger Hunt Questions -->
-    <div *ngIf="currentExercise.scavengerHuntQuestions">
-      <h3>Scavenger Hunt Questions</h3>
-      <ul>
-        <li *ngFor="let question of currentExercise.scavengerHuntQuestions">
-          <strong>{{ question.questionId }}:</strong> {{ question.question }}
-        </li>
-      </ul>
+    <div class="language-selector">
+      <label for="language">Language:</label>
+      <select id="language" [(ngModel)]="selectedLanguage" (change)="changeLanguage()">
+        <option *ngFor="let lang of languages" [value]="lang">{{ lang }}</option>
+      </select>
     </div>
   </div>
-  
-  <!-- ...rest of the template -->
-  
-        <div class="right-panel">
-            <!-- Code editor section with ngx-monaco-editor -->
-            <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" (onInit)="onEditorInit($event)">
-            </ngx-monaco-editor>
-            <!-- Output section for displaying results -->
-            <div class="output">
-                <h3>Output</h3>
-                <pre>TEts</pre> <!-- Make sure you have an 'output' property in your component -->
-            </div>
-        </div>
+  <div class="coding-exercise-container">
+    <div class="left-panel" *ngIf="currentQuestion" >
+      <div class="task-description">
+        <h2>{{ currentQuestion.title }}</h2>
+        <p><strong>Question:</strong> {{ currentQuestion.content }}</p>
+      </div>
     </div>
+    <div class="right-panel">
+      <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" (onInit)="onEditorInit($event)">
+      </ngx-monaco-editor>
+      <div class="output">
+        <h3>Output</h3>
+        <pre>{{ output }}</pre> <!-- Bind the 'output' property from your component -->
+      </div>
+    </div>
+  </div>
 </div>

@@ -2,6 +2,7 @@
 .markdown-body {
     background-color: #111b21; /* GitHub dark mode background */
     color: #c9d1d9; /* GitHub dark mode text */
+    margin: 30px 0;
   }
   
   .markdown-body * {
@@ -18,6 +19,10 @@
     color: #c9d1d9;
   }
   
+ ::ng-deep .markdown-body pre {
+    color: #ffffff;
+    background-color: #1a2b33;
+  }
   /* Add more overrides for other elements as needed */
   
 .exercise-container {
@@ -27,7 +32,7 @@
     padding: 20px;
     margin: auto;
     margin-top: 60px;
-    width: 70%;
+    width: 60%;
     .exercise-title {
       font-size: 40px;
       margin-bottom: 16px;
@@ -53,22 +58,19 @@
     }
   
     button {
-      background-color: #4caf50; // Green for 'start' button
-      color: white;
-      border: none;
       padding: 10px 20px;
       border-radius: 4px;
       margin-right: 8px;
       cursor: pointer;
+      font-size: medium;
+      font-weight: 900;
+      margin: 25px 0;
+      background-color: #111b21; 
+      color: #eeede1;
+      border: 1px solid #eeede1;     
       &:hover {
-        background-color: darken(#4caf50, 10%);
-      }
-    }
-  
-    .view-solution-btn {
-      background-color: #f44336; // Red for 'solution' button
-      &:hover {
-        background-color: darken(#f44336, 10%);
+        background-color: #eeede1;
+        color: black;
       }
     }
   }

@@ -1,117 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-import { Exercise } from 'src/app/models/exercise.model';
+import { Exercise, Question } from 'src/app/models/exercise.model';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-coding',
   templateUrl: './coding.component.html',
   styleUrls: ['./coding.component.css']
 })
-export class CodingComponent {
-
-
-  currentExercise: Exercise = {
-    // ...other exercise properties
-    id: 2,
-    title: 'PC Scavenger Hunt',
-    detailedDescription: 'Interact with a synced mainnet full node using bitcoin-cli.',
-    hints: [
-      'Use bitcoin-cli help to explore available commands.',
-      'You may need jq to parse JSON output.'
-    ],
-    rpcInformation: {
-      rpcServer: '35.209.148.157',
-      rpcCredentials: {
-        username: 'a_plus_student',
-        password: 'hunter2'
-      },
-      usageExamples: [
-        'bitcoin-cli -rpcconnect=35.209.148.157 -rpcuser=a_plus_student -rpcpassword=hunter2 getblockcount'
-      ]
-    },
-    scavengerHuntQuestions: [
-      {
-        questionId: '001.sh',
-        question: 'What is the hash of block 654,321?',
-        solutionType: 'SingleCommand'
-      },
-      // ...more questions
-    ]
-    // ...other fields as needed
-  };
-
-
-  // isLoading: boolean = false ; // Initialize as true to show the loader initially
-  // code: string = '// Type your code here';
-  // selectedLanguage: string = 'javascript'; // default language
-  // languages: string[] = ['javascript', 'python', 'typescript', 'java', 'csharp']; // add more languages as needed
-  // editorOptions = { theme: 'vs-dark', language: this.selectedLanguage };
-
-  // onEditorInit(editor: any) {
-  //   // You can now access the monaco editor instance
-  // }
-
-  // loadExercise(difficulty: string) {
-  //   // Load the exercise based on the difficulty
-  //   console.log(`Loading ${difficulty} exercise`);
-  //   // Here you would set the exercise content based on the difficulty
-  // }
-
-  // changeLanguage() {
-  //   // Change the language of the editor
-  //   console.log(`Changing language to ${this.selectedLanguage}`);
-  //   this.editorOptions = { ...this.editorOptions, language: this.selectedLanguage };
-  //   // You would also handle the editor configuration for the selected language
-  // }
-
+export class CodingComponent implements OnInit {
+  output: string = ''; // To display the output of the code execution
+  currentQuestion: Question | null = null; // Holds the currently selected question
   isLoading: boolean = false;
   code: string = '// Type your code here';
   selectedLanguage: string = 'rust'; // default to 'rust'
   languages: string[] = ['rust', 'go', 'cpp', 'shell']; // updated languages
   editorOptions = { theme: 'vs-dark', language: this.selectedLanguage };
-  // currentExercise: Exercise; // Property to hold the current exercise
-  
-  // exercises: Exercise[] = [
-  //   // Populate with random data for testing
-  //   {
-  //     id: 1,
-  //     difficulty: 'easy',
-  //     description: 'Easy level exercise description...',
-  //     exampleImageUrl: 'example-easy.png'
-  //   },
-  //   {
-  //     id: 2,
-  //     difficulty: 'medium',
-  //     description: 'What is the hash of block 654,321?',
-  //     exampleImageUrl: 'example-medium.png'
-  //   },
-  //   {
-  //     id: 3,
-  //     difficulty: 'hard',
-  //     description: 'Hard level exercise description...',
-  //     exampleImageUrl: 'example-hard.png'
-  //   }
-  //   // Add more exercises as needed
-  // ];
+  weekNumber: number = 0
+  loading: boolean = true; // Initialize as true to show the loading indicator
+  exercises: Exercise[] | null = []
+  currentExercise: Exercise | null = null
+  error: string = '';
 
-  constructor() {
+
+  constructor(
+    private dataService: DataService
+  ) {
     // Initialize the currentExercise with the first exercise as a default
     // this.currentExercise = this.exercises[0];
+  }
+  ngOnInit(): void {
+    this.dataService.fetchData<any[]>('assets/data/exercises.json').subscribe(
+      data => {
+        this.exercises = data;
+        this.currentExercise = this.exercises[this.weekNumber]
+        this.loading = false;
+        // Existing initialization logic
+        debugger
+        this.loadQuestion(this.currentExercise.questions[0])
+      },
+      error => {
+        this.error = 'Failed to load problems data.';
+        this.loading = false;
+      }
+    );
   }
 
   onEditorInit(editor: any) {
     // Access the Monaco editor instance
-  }
-
-  loadExercise(difficulty: string) {
-    // Find an exercise with the given difficulty
-    // const exercise = this.exercises.find(ex => ex.difficulty === difficulty);
-    // if (exercise) {
-    //   this.currentExercise = exercise;
-    //   // Additional logic to update the editor content can be added here
-    //   console.log(`Loading ${difficulty} exercise`);
-    // } else {
-    //   console.log(`No ${difficulty} exercise found`);
-    // }
   }
 
   changeLanguage() {
@@ -119,4 +54,18 @@ export class CodingComponent {
     this.editorOptions = { ...this.editorOptions, language: this.selectedLanguage };
     // Additional logic to handle language-specific editor configurations
   }
+
+  loadQuestion(question: Question) {
+    this.currentQuestion = question; // Set the current question
+    this.code = question.codeMetadata?.starterCode || '// Type your code here'; // Load the code template if it exists
+    // If the question requires a specific programming language, update the editor options
+    if (question.codeMetadata?.language) {
+      this.selectedLanguage = question.codeMetadata.language;
+      this.editorOptions = { ...this.editorOptions, language: this.selectedLanguage };
+    }
+    // Clear previous output
+    this.output = '';
+    console.log(`Loading question: ${question.id}`);
+  }
+  
 }

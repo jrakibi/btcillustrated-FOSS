@@ -1,49 +1,23 @@
-<!-- <div *ngIf="!loading && !error; else loadingOrErrorTemplate" class="exercise-container">
-    <h2 class="exercise-title">{{ exercise?.title }}</h2>
-    <div class="exercise-description" [innerHTML]="exercise?.description"></div>
-    <div *ngIf="exercise?.hint" class="exercise-hint">
-      <strong>HINT:</strong> <span [innerHTML]="exercise?.hint"></span>
-    </div>
-    <div class="exercise-expected-submissions">
-      <strong>Expected submissions:</strong>
-      <p [innerHTML]="exercise?.expectedSubmissions"></p>
-    </div>
+   <div class="exercise-container"  *ngIf="!loading && !error; else loadingOrErrorTemplate" >
+    <h1 >{{currentProblem?.title}}</h1>
+    <p>{{currentProblem?.overview}}</p>
+    <ng-container *ngFor="let section of currentProblem?.sections">
+      <!-- <h4>{{section.title}}</h4> -->
+      <ng-container *ngIf="section.isLink">
+        <div *ngIf="section.path && readmeHtmlMap[section.path]" class="markdown-body" [innerHTML]="readmeHtmlMap[section.path]">
+          <!-- README content will be rendered here -->
+        </div>
+        <div *ngIf="!section.path || !readmeHtmlMap[section.path]" class="loading-indicator">
+          Loading README...
+        </div>
+      </ng-container>
+    </ng-container>
     <div class="exercise-actions">
-      <button class="start-exercise-btn">Start Exercise</button>
-      <button class="view-solution-btn">View Solution</button>
+      <button class="start-exercise-btn">Start Coding</button>
     </div>
   </div>
-  
+    
   <ng-template #loadingOrErrorTemplate>
     <div *ngIf="loading" class="loading">Loading exercise...</div>
     <div *ngIf="error" class="error">{{ error }}</div>
   </ng-template>
-   -->
-
-   <!-- <div *ngIf="readmeHtml; else loadingTemplate" class="readme-content" [innerHTML]="readmeHtml">
-  </div>
-  
-  <ng-template #loadingTemplate>
-    <div *ngIf="loading" class="loading-indicator">
-      Loading README...
-    </div>
-    <div *ngIf="error" class="error-message">
-      {{ error }}
-    </div>
-  </ng-template>
-   -->
-<div class="exercise-container">
-    <div *ngIf="readmeHtml; else loadingTemplate" class="markdown-body" [innerHTML]="readmeHtml">
-        <!-- The README content will be rendered here with GitHub-like styling -->
-      </div>
-      
-      <ng-template #loadingTemplate>
-        <div *ngIf="loading" class="loading-indicator">
-          Loading README...
-        </div>
-        <div *ngIf="error" class="error-message">
-          {{ error }}
-        </div>
-      </ng-template>
-      
-</div>

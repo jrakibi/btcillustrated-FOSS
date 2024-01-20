@@ -10,9 +10,9 @@ export interface Problem {
 
 export interface Section {
   title: string;
-  content: string;
   isLink: boolean;
-  path: string 
+  content?: string;
+  path?: string 
 }
 
 

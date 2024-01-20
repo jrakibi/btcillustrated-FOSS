@@ -1,6 +1,102 @@
-{
+[{
+  "id": "202401",
   "title": "RPC Scavenger Hunt",
-  "description": "These exercises require a synced mainnet full node with the transaction index active (-txindex=1). Chaincode Labs can provide credentials to a hosted node with an authenticated proxy so students can complete the exercises using bitcoin-cli locally but without needing to sync a full node themselves. To use the proxy you must have bitcoin-cli installed. It is part of the package you can download from bitcoincore.org. These packages obviously include the Bitcoin Core daemon as well, but you do not need to run it or sync a mainnet node yourself for this exercise.",
-  "hint": "Use bitcoin-cli help and bitcoin-cli help <command name> to learn what commands are available and what they do.",
-  "expectedSubmissions": "Every question must be answered by providing a bash script that executes bitcoin-cli commands. The commands should be straightforward and require only basic bash operators."
+  "description": "These exercises require a synced mainnet full node with the transaction index active (`-txindex=1`). ...",
+  "difficulty": "Hard",
+  "toolsRequired": ["bitcoin-cli", "bash", "jq"],
+  "submissionInstructions": "Every question must be answered by providing a bash script that executes `bitcoin-cli` commands. ... Do NOT rename the script files!",
+  "templateFilePath": "/submission/",
+  "questions": [
+    {
+      "id": "001",
+      "title": "Block Hash Inquiry",
+      "content": "What is the hash of block 654,321?",
+      "answerType": "code",
+      "codeMetadata": {
+        "language": "shell",
+        "starterCode": "#!/bin/bash\n# What is the hash of block 654,321?",
+        "validatorFunction": "validateBlockHash"
+      }
+    },
+    {
+      "id": "002",
+      "title": "Signature Verification",
+      "content": "Verify the signature by this address over this message...",
+      "answerType": "code",
+      "codeMetadata": {
+        "language": "shell",
+        "starterCode": "#!/bin/bash\n# (true / false) Verify the signature by this address over this message:\n# address: '1E9YwDtYf9R29ekNAfbV7MvB4LNv7v3fGa'\n# message: '1E9YwDtYf9R29ekNAfbV7MvB4LNv7v3fGa'\n# signature: 'HCsBcgB+Wcm8kOGMH8IpNeg0H4gjCrlqwDf/GlSXphZGBYxm0QkKEPhh9DTJRp2IDNUhVr0FhP9qCqo2W0recNM='",
+        "validatorFunction": "validateSignature"
+      }
+    },
+    {
+      "id": "003",
+      "title": "Output Count",
+      "content": "How many new outputs were created by block 123,456?",
+      "answerType": "code",
+      "codeMetadata": {
+        "language": "shell",
+        "validatorFunction": "validateOutputCount",
+        "starterCode": "#!/bin/bash\n# How many new outputs were created by block 123,456?"
+      }
+    },
+    {
+      "id": "004",
+      "title": "Compute Taproot Address",
+      "content": "Using descriptors, compute the taproot address at index 100 derived from this extended public key...",
+      "answerType": "code",
+      "codeMetadata": {
+        "language": "shell",
+        "validatorFunction": "validateTaprootAddress",
+        "starterCode": "#!/bin/bash\n# Using descriptors, compute the 100th taproot address derived from this extended public key:\n# xpub6Cx5tvq6nACSLJdra1A6WjqTo1SgeUZRFqsX5ysEtVBMwhCCRa4kfgFqaT2o1kwL3esB1PsYr3CUdfRZYfLHJunNWUABKftK2NjHUtzDms2"
+      }
+    },
+    {
+      "id": "005",
+      "title": "Create Multisig Address",
+      "content": "Create a 1-of-4 P2SH multisig address from the public keys in the four inputs of this transaction...",
+      "answerType": "code",
+      "codeMetadata": {
+        "language": "shell",
+        "validatorFunction": "validateMultisigAddress",
+        "starterCode": "#!/bin/bash\n# Create a 1-of-4 P2SH multisig address from the public keys in the four inputs of this tx:\n# 37d966a263350fe747f1c606b159987545844a493dd38d84b070027a895c4517"
+      }
+    },
+    {
+      "id": "006",
+      "title": "Find Coinbase Spender",
+      "content": "Which transaction in block 257,343 spends the coinbase output of block 256,128?",
+      "answerType": "code",
+      "codeMetadata": {
+        "language": "shell",
+        "validatorFunction": "validateCoinbaseSpender",
+        "starterCode": "#!/bin/bash\n# Which tx in block 257,343 spends the coinbase output of block 256,128?"
+      }
+    },
+    {
+      "id": "007",
+      "title": "Find Unspent Output",
+      "content": "Only one single output remains unspent from block 123,321. What address was it sent to?",
+      "answerType": "code",
+      "codeMetadata": {
+        "language": "shell",
+        "validatorFunction": "validateUnspentOutput",
+        "starterCode": "#!/bin/bash\n# Only one single output remains unspent from block 123,321. What address was it sent to?"
+      }
+    },
+    {
+      "id": "008",
+      "title": "Identify Signer",
+      "content": "Which public key signed input 0 in this transaction?",
+      "answerType": "code",
+      "codeMetadata": {
+        "language": "shell",
+        "validatorFunction": "validateSigner",
+        "starterCode": "#!/bin/bash\n# Which public key signed input 0 in this transaction:\n# e5969add849689854ac7f28e45628b89f7454b83e9699e551ce14b6f90c86163"
+      }
+    }
+  ]
 }
+
+]
+  
