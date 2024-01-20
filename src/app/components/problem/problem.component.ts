@@ -15,7 +15,6 @@ export class ProblemComponent implements OnInit {
   readmeHtml: SafeHtml | null = null;
   loading: boolean = true; // Initialize as true to show the loading indicator
   error: string = '';
-  problems: Problem[] | null = null
   currentProblem: Problem | null = null
   weekNumber: number = 0
   readmeHtmlMap: { [key: string]: SafeHtml } = {};
@@ -28,10 +27,9 @@ export class ProblemComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.dataService.fetchData<any[]>('assets/data/problems.json').subscribe(
+    this.dataService.fetchData<any>('assets/data/week0/problem/problem.json').subscribe(
       data => {
-        this.problems = data;
-        this.currentProblem = this.problems[this.weekNumber]
+        this.currentProblem = data
         this.loading = false;
         // Existing initialization logic
         this.currentProblem?.sections.forEach(section => {

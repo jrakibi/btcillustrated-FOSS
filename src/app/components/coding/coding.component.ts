@@ -17,7 +17,6 @@ export class CodingComponent implements OnInit {
   editorOptions = { theme: 'vs-dark', language: this.selectedLanguage };
   weekNumber: number = 0
   loading: boolean = true; // Initialize as true to show the loading indicator
-  exercises: Exercise[] | null = []
   currentExercise: Exercise | null = null
   error: string = '';
 
@@ -29,14 +28,15 @@ export class CodingComponent implements OnInit {
     // this.currentExercise = this.exercises[0];
   }
   ngOnInit(): void {
-    this.dataService.fetchData<any[]>('assets/data/exercises.json').subscribe(
+    this.dataService.fetchData<any>('assets/data/week0/coding/coding.json').subscribe(
       data => {
-        this.exercises = data;
-        this.currentExercise = this.exercises[this.weekNumber]
+        this.currentExercise = data
         this.loading = false;
         // Existing initialization logic
         debugger
-        this.loadQuestion(this.currentExercise.questions[0])
+        if(this.currentExercise) {
+          this.loadQuestion(this.currentExercise.questions[0])
+        }
       },
       error => {
         this.error = 'Failed to load problems data.';

@@ -1,0 +1,16 @@
+  {
+    "title": "RPC Scavenger Hunt",
+    "overview": "For this exercise, you'll need a synced mainnet full node with the transaction index active (-txindex=1). You should have bitcoin-cli installed, which is part of the Bitcoin Core package available from bitcoincore.org. Although this package includes the Bitcoin Core daemon, you don't need to run or sync a mainnet node specifically for this exercise if you already have access to one.",
+    "sections": [
+      {
+        "title":"Setting Up",
+        "isLink": true,
+        "path": "assets/data/week0/problem/readme1.md"
+      },
+      {
+        "title":"What You Need to Do",
+        "isLink": true,
+        "path": "assets/data/week0/problem/readme2.md"
+      }
+    ]
+  }

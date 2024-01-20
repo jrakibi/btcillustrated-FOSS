@@ -20,7 +20,7 @@ export class ToolsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.dataService.fetchData<any[]>('assets/data/tools.json').subscribe(
+    this.dataService.fetchData<any[]>('assets/data/week0/tools/tools.json').subscribe(
       data => {
         this.tools = data;
         this.loading = false;

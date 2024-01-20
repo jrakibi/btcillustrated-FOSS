@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Illustration } from 'src/app/models/visual.model';
 import { IllustrationService } from 'src/app/services/illustration-service';
+import { DataService } from 'src/app/services/data.service';
 // import { LnurlPayDialogComponent } from 'src/app/features/illustration/lnurl-pay-dialog/lnurl-pay-dialog.component';
 // import { IllustrationGptComponent } from '../illustration-gpt/illustration-gpt.component';
 declare var $: any; // Import jQuery
@@ -75,6 +76,7 @@ export class VisualsComponent {
 
   constructor(private route: ActivatedRoute,
     private illustrationService: IllustrationService,
+    private dataService: DataService,
     // private openaiService: OpenaiService,
     public dialog: MatDialog) {
     const data = this.route.snapshot.data['data'];
@@ -87,34 +89,45 @@ export class VisualsComponent {
 
   }
 
+  illustrationsIds: any[] = []
   loadIllustrations(): void {
-    this.illustrationService.getIllustrationsByIds([5, 238]).subscribe(
-      (data: Illustration[]) => {
-        this.illustrations = data.map(illustration => ({
-          ...illustration,
-          thumbnailLoaded: false
-        }));
-
-        const id = 238
-        if (id) {
-          this.illustration = this.illustrations.filter(illustration => illustration.id == id)[0]
-          this.imageCollection = this.illustration.imagePaths.map((imgSrc: any) => ({
-            src: imgSrc,
-            alt: 'Chocheng Fall 2023 Collection Image',
-            loaded: false
-          }));
-
-          this.illustrationThumbnails = this.illustrations.map((illustration: Illustration) => ({
-            src: illustration.imagePaths[0],
-            title: illustration.title,
-            loaded: false
-          }))
-        }
+    this.dataService.fetchData<any>('assets/data/week0/visuals/visuals.json').subscribe(
+      data => {
+        this.illustrationsIds = data.ids;
+        this.illustrationService.getIllustrationsByIds(this.illustrationsIds).subscribe(
+          (data: Illustration[]) => {
+            this.illustrations = data.map(illustration => ({
+              ...illustration,
+              thumbnailLoaded: false
+            }));
+    
+            const id = 238
+            if (id) {
+              this.illustration = this.illustrations.filter(illustration => illustration.id == id)[0]
+              this.imageCollection = this.illustration.imagePaths.map((imgSrc: any) => ({
+                src: imgSrc,
+                alt: 'Chocheng Fall 2023 Collection Image',
+                loaded: false
+              }));
+    
+              this.illustrationThumbnails = this.illustrations.map((illustration: Illustration) => ({
+                src: illustration.imagePaths[0],
+                title: illustration.title,
+                loaded: false
+              }))
+            }
+          },
+          error => {
+            console.error('Error fetching illustrations', error);
+          }
+        );
       },
       error => {
-        console.error('Error fetching illustrations', error);
+        console.log("Failed to load illustrations data")
+        // this.loading = false;
       }
     );
+
   }
 
   showModal: boolean = false;

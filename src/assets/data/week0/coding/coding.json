@@ -1,4 +1,4 @@
-[{
+{
   "id": "202401",
   "title": "RPC Scavenger Hunt",
   "description": "These exercises require a synced mainnet full node with the transaction index active (`-txindex=1`). ...",
@@ -97,6 +97,3 @@
     }
   ]
 }
-
-]
-  
