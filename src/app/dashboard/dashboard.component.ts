@@ -43,7 +43,7 @@ export class DashboardComponent implements OnInit {
   // Lifecycle hooks
   ngOnInit(): void {
     
-    this.activeWorkspace = this.appContext.retrieveActiveWorkspace() ?? WorkspaceEnum.Tools
+    this.activeWorkspace = this.appContext.retrieveActiveWorkspace() ?? WorkspaceEnum.Visuals
     this.showWorkspace(this.activeWorkspace)
       this.weeks = [
         {

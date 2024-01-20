@@ -1,1 +1,152 @@
-<p>visuals works!</p>
+<div class="container">
+  <!-- <h2 class="visuals-title">Essential Visual for this Exercises</h2> -->
+
+  <div class="main-content">
+    <div class="visuals-header">Visuals for Bitcoin</div>
+
+    <div class="gallery-wrapper">
+ 
+
+      <div class="side-video-container">
+        <div  class="side-container-title">
+            <h2>Week 0 Visuals</h2> <!-- Title for the container -->
+        </div>
+            <div class="collection-container">
+              <div class="collection-content">
+                <div class="image-list">
+                  <ng-container *ngFor="let illustration of illustrations; let i = index">
+                    <!-- Card for each image and title -->
+                    <div class="image-card" (click)="chooseIlllustration(illustration)" >
+                      <h3 class="image-title">{{illustration.title}}</h3>
+                      <img [src]="illustration.src" alt="Collection Image"  />
+                      <!-- <img [src]="illustration.src" alt="Collection Image" (click)="selectImage(i)" (load)="onLoadImage(image)" [hidden]="!image.loaded" /> -->
+                    </div>
+                  </ng-container>
+                </div>
+              </div>
+            </div>
+          
+          
+          
+      </div>
+      <div class="image-collection">
+        <div class="image-container">
+          <div [ngClass]="imageCollection[currentImageIndex]?.loaded ? 'image-wrapper' : 'image-wrapper-placehodler'">
+            <div class="ph-item" *ngIf="!imageCollection[currentImageIndex]?.loaded">
+              <div class="ph-col-12">
+                <div class="ph-picture"></div>
+                <div class="ph-row">
+                </div>
+              </div>
+            </div>
+            <!-- Actual image -->
+            <img
+              [src]="imageCollection[currentImageIndex]?.src"
+              [alt]="imageCollection[currentImageIndex]?.alt"
+              (load)="onLoadImage(imageCollection[currentImageIndex])"
+              [hidden]="!imageCollection[currentImageIndex]?.loaded"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="gallery-summary">
+        <h1 style="text-align: center">
+          <a target="_blank" class="title">{{ illustration?.title }}</a>
+          <a target="_blank" class="description">{{ illustration?.details }}</a>
+        </h1>
+
+        <div class="social-icons">
+          <ul>
+            <li>
+              <a
+                aria-label="Twitter"
+                href="https://twitter.com/BTCillustrated"
+                target="_blank"
+                class="icon-wrapper"
+              >
+                <svg
+                  class="icon-svg"
+                  xmlns="https://www.w3.org/2000/svg"
+                  viewBox="0 0 512 512"
+                >
+                  <path
+                    d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a
+                aria-label="GitHub"
+                href="https://github.com/jrakibi/BTCillustrated/"
+                target="_blank"
+                class="icon-wrapper"
+              >
+                <i class="fa fa-github"></i>
+              </a>
+            </li>
+            
+            <li>
+              <a
+                aria-label="Pay"
+                target="_blank"
+                (click)="openDialog()"
+                class="icon-wrapper"
+                style="background-color: #eeede1; cursor: pointer;"
+              >
+                <i class="fa fa-bolt" ></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="gallery-look-number">
+          <a
+            class="arrow left-arrow"
+            aria-label="Previous look"
+            (click)="previousImage()"
+          >
+            <svg
+              class="icon icon-arrow"
+              focusable="false"
+              viewBox="0 0 32 32"
+              width="32"
+              height="32"
+              xmlns="https://www.w3.org/2000/svg"
+            >
+              <title>Arrow</title>
+              <path
+                d="M22.33 15.5l-6.924-6.925.707-.707L24.245 16l-8.132 8.132-.707-.707 6.925-6.925H8v-1z"
+                fill-rule="nonzero"
+              ></path>
+            </svg>
+          </a>
+          SLIDE {{ currentImageIndex + 1 }} /
+          {{ illustration?.imagePaths?.length }}
+          <a
+            class="arrow right-arrow"
+            aria-label="Next look"
+            (click)="nextImage()"
+          >
+            <svg
+              class="icon icon-arrow"
+              focusable="false"
+              viewBox="0 0 32 32"
+              width="32"
+              height="32"
+              xmlns="https://www.w3.org/2000/svg"
+            >
+              <title>Arrow</title>
+              <path
+                d="M22.33 15.5l-6.924-6.925.707-.707L24.245 16l-8.132 8.132-.707-.707 6.925-6.925H8v-1z"
+                fill-rule="nonzero"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button & Collection Div at the bottom of the window -->
