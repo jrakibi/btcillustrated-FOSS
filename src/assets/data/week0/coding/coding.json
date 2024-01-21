@@ -18,7 +18,17 @@
         "language": "shell",
         "starterCode": "#!/bin/bash\n# What is the hash of block 654,321?",
         "validatorFunction": "validateBlockHash"
-      }
+      },
+      "hints": [
+        "Solvable with a single `bitcoin-cli` commands",
+        "Solvable with a single `bitcoin-cli` commands",
+        "Solvable with a single `bitcoin-cli` commands",
+        "Solvable with a single `bitcoin-cli` commands"
+      ],
+      "examplesPath": [
+        "assets/data/week0/coding/example.md"
+      ]
+
     },
     {
       "id": "002",
@@ -32,7 +42,10 @@
         "language": "shell",
         "starterCode": "#!/bin/bash\n# (true / false) Verify the signature by this address over this message:\n# address: '1E9YwDtYf9R29ekNAfbV7MvB4LNv7v3fGa'\n# message: '1E9YwDtYf9R29ekNAfbV7MvB4LNv7v3fGa'\n# signature: 'HCsBcgB+Wcm8kOGMH8IpNeg0H4gjCrlqwDf/GlSXphZGBYxm0QkKEPhh9DTJRp2IDNUhVr0FhP9qCqo2W0recNM='",
         "validatorFunction": "validateSignature"
-      }
+      },
+      "hints": [
+        "Requires one or more `bitcoin-cli` commands and `jq` to extract object properties"
+      ]
     },
     {
       "id": "003",
@@ -44,7 +57,10 @@
         "language": "shell",
         "validatorFunction": "validateOutputCount",
         "starterCode": "#!/bin/bash\n# How many new outputs were created by block 123,456?"
-      }
+      },
+      "hints": [
+        ""
+      ]
     },
     {
       "id": "004",
@@ -69,7 +85,10 @@
         "language": "shell",
         "validatorFunction": "validateMultisigAddress",
         "starterCode": "#!/bin/bash\n# Create a 1-of-4 P2SH multisig address from the public keys in the four inputs of this tx:\n# 37d966a263350fe747f1c606b159987545844a493dd38d84b070027a895c4517"
-      }
+      },
+      "hints": [
+        "Requires multiple `bitcoin-cli` commands with `jq` and bash loops/conditionals"
+      ]
     },
     {
       "id": "006",

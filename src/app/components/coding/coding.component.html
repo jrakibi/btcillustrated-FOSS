@@ -16,35 +16,80 @@
     <div class="left-panel" *ngIf="currentQuestion">
       <div class="task-description">
         <h2>{{ currentQuestion.title }}</h2>
-        <p *ngIf="!currentQuestion.isLink">
-          <strong>Question:</strong> {{ currentQuestion.content }}
-        </p>
-        <div *ngIf="currentQuestion.isLink">
-          <strong>Question:</strong>
-          <div class="markdown-body" [innerHTML]="readmeHtml">
+        <div class="question">
+          <span class="title-coding-section">Question:</span> 
+          <div class="question-data">
+            <p *ngIf="!currentQuestion.isLink">
+              {{ currentQuestion.content }}
+            </p>
+            <div *ngIf="currentQuestion.isLink">
+              <div class="markdown-body" [innerHTML]="readmeHtml">
+                <!-- README content will be rendered here -->
+              </div>
+            </div>
+            <div *ngIf="currentQuestion.isLink && !readmeHtml" class="loading-indicator">
+              Loading README...
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="hints" *ngIf="hints && hints.length > 0">
+          <span class="title-coding-section">Hints</span>
+          <ng-container *ngFor="let hint of hints; let i=index">
+            <div class="hint-item" (click)="promptUnblurHint(i)" title="Would you like to show this hint?">
+              <span class="hint-label">Hint {{i + 1}} :</span>
+              <span [class.blurred]="hintsBlurred[i]">{{ hint }}</span>
+            </div>
+            
+          </ng-container>
+        </div>
+        
+        
+
+        <div class="examples" *ngIf="exampleHtml !=null">
+          <span class="title-coding-section">Examples</span>
+          <div class="markdown-body" [innerHTML]="exampleHtml">
             <!-- README content will be rendered here -->
           </div>
         </div>
 
-        <div *ngIf="currentQuestion.isLink && !readmeHtml" class="loading-indicator">
-          Loading README...
-        </div>
-      </div>
     </div>
-    <div class="right-panel">
-      <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" (onInit)="onEditorInit($event)">
-      </ngx-monaco-editor>
-      <span class="execution-disclaimer">* Code execution not currently available. Feature in development.</span>
-      <div class="output">
-        <h3>Expected Output</h3>
-        <div class="toggle-container">
-          <input type="checkbox" id="toggleOutputCheckbox" (change)="toggleOutputVisibility()" hidden>
-          <label for="toggleOutputCheckbox" class="toggle-label">
-            <span class="slider"></span>
-          </label>
-        </div>
-        <pre [class.blurred]="!showOutput">{{ currentQuestion?.expectedOutput }}</pre>
+  </div>
+  <div class="right-panel">
+    <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" (onInit)="onEditorInit($event)">
+    </ngx-monaco-editor>
+    <span class="execution-disclaimer">* Code execution not currently available. Feature in development.</span>
+    <div class="output">
+      <h3>Expected Output</h3>
+      <div class="toggle-container">
+        <input type="checkbox" id="toggleOutputCheckbox" (change)="toggleOutputVisibility()" hidden>
+        <label for="toggleOutputCheckbox" class="toggle-label">
+          <span class="slider"></span>
+        </label>
       </div>
+      <pre [class.blurred]="!showOutput">{{ currentQuestion?.expectedOutput }}</pre>
     </div>
-    
+  </div>
+
+</div>
+
+
+<!-- Modal Template -->
+<!-- <div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <p>Would you like to show this hint?</p>
+    <button (click)="showHint()">Show Hint</button>
+    <button (click)="closeModal()">Cancel</button>
+  </div>
+</div>
+ -->
+
+<!-- Modal Template -->
+<div class="modal" *ngIf="isModalOpen">
+  <div class="modal-content">
+    <p>Would you like to show this hint?</p>
+    <button (click)="toggleHint(hintIndex)">Show Hint</button>
+    <button (click)="isModalOpen = false" style="background: #2a3b4b;">Cancel</button>
+  </div>
 </div>

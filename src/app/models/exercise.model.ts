@@ -16,11 +16,12 @@ export interface Question {
   isLink: boolean;
   content?: string;
   contentPath?: string
-  hint?: string; // Optional hint for the question
   answerType: 'single-line' | 'multi-line' | 'code';
   expectedOutput?: string;
   // For 'code' type, we might specify the language and other coding settings
   codeMetadata?: CodeMetadata;
+  hints?: string[]
+  examplesPath: string[]
 }
 
 export interface CodeMetadata {

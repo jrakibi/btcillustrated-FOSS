@@ -21,7 +21,6 @@ export class CodingComponent implements OnInit {
   loading: boolean = true; // Initialize as true to show the loading indicator
   currentExercise: Exercise | null = null
   error: string = '';
-  readmeHtml!: string ; // This will hold the HTML content for the README
   showOutput: boolean = false; 
 
   constructor(
@@ -59,37 +58,86 @@ export class CodingComponent implements OnInit {
     // Additional logic to handle language-specific editor configurations
   }
 
+  hints: any[] = [];
+  readmeHtml: string = ''; // This will hold the HTML content for the README
+  exampleHtml: string = ''; // This will hold the HTML content for the example
+  
   loadQuestion(question: Question) {
     this.currentQuestion = question; // Set the current question
     this.code = question.codeMetadata?.starterCode || '// Type your code here'; // Load the code template if it exists
+    
     // If the question requires a specific programming language, update the editor options
     if (question.codeMetadata?.language) {
       this.selectedLanguage = question.codeMetadata.language;
       this.editorOptions = { ...this.editorOptions, language: this.selectedLanguage };
     }
+  
+    // Load README or example content if paths are provided
     if (question.isLink && question.contentPath) {
-      this.loadReadme(question.contentPath); // Load README if needed
+      this.loadContent(question.contentPath, (content) => this.readmeHtml = content);
     }
+    if (question.examplesPath && question.examplesPath.length > 0) {
+      this.loadContent(question.examplesPath[0], (content) => this.exampleHtml = content);
+    }
+  
+    this.hints = question.hints ?? [];
+    this.hintsBlurred = this.hints.map(() => true); // Set all hints to blurred
+
     // Clear previous output
     this.output = '';
     console.log(`Loading question: ${question.id}`);
   }
   
-
-  loadReadme(path: string) {
+  loadContent(path: string, setContent: (content: string) => void) {
     if (!path) return;
     this.http.get(path, { responseType: 'text' }).subscribe(
       markdown => {
-        this.readmeHtml = marked.parse(markdown) as string;
+        setContent(marked.parse(markdown) as string);
       },
       error => {
-        console.error('There was an error fetching the README', error);
-        this.readmeHtml = ''; // Reset the content on error
+        console.error('There was an error fetching the content', error);
+        setContent(''); // Reset the content on error
       }
     );
   }
+  
 
   toggleOutputVisibility() {
     this.showOutput = !this.showOutput; // Toggle the boolean value
   }
+
+  hintsBlurred: boolean[] = []; // Initialize with all hints blurred.
+
+  // Method to toggle blur on and off for each hint.
+// showHint(index: number): void {
+//   const confirmUnblur = confirm('Would you like to show this hint?');
+//   if (confirmUnblur) {
+//     this.hintsBlurred[index] = !this.hintsBlurred[index]; // Toggle the blur state
+//   }
+// }
+  unblurHint(hint: string): string {
+    // Logic to unblur the hint, e.g., removing some placeholder or actual unblurring
+    return hint; // Return the unblurred hint
+  }
+  
+
+
+  isModalOpen: boolean = false;
+  hintIndex: number = -1; // Index of the hint to potentially unblur
+  
+  // Call this method when a hint is clicked
+  promptUnblurHint(index: number): void {
+    this.hintIndex = index;
+    this.isModalOpen = true;
+  }
+  
+  // Call this method to toggle the hint's blur state
+  toggleHint(index: number): void {
+    this.hintsBlurred[index] = false;
+    this.isModalOpen = false;
+  }
+  
 }
+
+
+
