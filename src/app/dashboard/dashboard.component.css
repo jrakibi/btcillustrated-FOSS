@@ -401,11 +401,7 @@
     align-items: center;
     cursor: pointer;
   }
-  
-  .card-preview.dashed {
-    border-style: dashed; /* Dashed border for the 'Regenerate' card */
-  }
-  
+
   .card-preview2 {
     width: 110px;
     height: 60px;
@@ -423,9 +419,11 @@
   }
   
   .card-preview2.dashed {
+    color: white;
+    background-color: #1a2b33;
     border-style: dashed; /* Dashed border for the 'Regenerate' card */
-    color: #192b32;
     font-size: 14px;
+    border: 1px dashed #eeede1;
   }
   
   

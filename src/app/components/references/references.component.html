@@ -1,22 +1,24 @@
-<div class="resource-container">
-    <div class="references-header">Reference for Week 0</div>
 
-    <div class="category-tabs">
-        <div class="cat-but">
+<!-- This is outside the .reference-container and will take the full width of the viewport -->
+<div class="references-header">Reference for Week 0</div>
+<div class="category-tabs">
+  <button (click)="filterResources('all')" class="category-tab active">All</button>
+  <button (click)="filterResources('documentation')" class="category-tab">Documenation</button>
+  <button (click)="filterResources('video')" class="category-tab">Videos</button>
+  <button (click)="filterResources('article')" class="category-tab">Articles</button>
+  <button (click)="filterResources('book')" class="category-tab">Books</button>
+</div>
 
-            <button (click)="filterResources('all')">All</button>
-            <button (click)="filterResources('video')">Videos</button>
-            <button (click)="filterResources('article')">Articles</button>
-            <button (click)="filterResources('book')">Books</button>
-        </div>
-    </div>
-    <div class="resource-grid">
-      <div *ngFor="let resource of filteredResources" class="resource-card">
-        <img [src]="resource.imageUrl" [alt]="resource.title">
-        <h3>{{ resource.title }}</h3>
-        <p>{{ resource.description }}</p>
-        <a [href]="resource.url" target="_blank">Learn More</a>
+<!-- .reference-container now only contains the grid of cards -->
+<div class="reference-container">
+  <div class="resource-grid">
+    <div *ngFor="let reference of filteredReferences" class="resource-card">
+      <img [src]="reference.thumbnailUrl" [alt]="reference.title" class="resource-thumbnail">
+      <div class="resource-info">
+        <h3 class="resource-title">{{ reference.title }}</h3>
+        <p class="resource-description">{{ reference.description | truncate:100 }}</p>
       </div>
+      <a [href]="reference.referenceLink" target="_blank" class="learn-more-btn">Learn More</a>
     </div>
   </div>
-  
+</div>

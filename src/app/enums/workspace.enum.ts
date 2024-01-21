@@ -5,5 +5,6 @@ export enum WorkspaceEnum {
     Visuals = "2- Visuals",
     References = "3- References",
     Tools = "4- Tools",
-    Deepdive = "6- Deepdive"
+    Deepdive = "6- Deepdive",
+    About = "About"
   }

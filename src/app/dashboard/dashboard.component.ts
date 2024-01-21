@@ -63,6 +63,18 @@ export class DashboardComponent implements OnInit {
           imageUrl: 'assets/btcIllustrated/mindmap/test3.png',
           tag: 'Week 3',
           locked: true
+        },
+        {
+          title: 'Week 4',
+          imageUrl: 'assets/btcIllustrated/mindmap/test.png',
+          tag: 'Week 4',
+          locked: true
+        },
+        {
+          title: 'Week 5',
+          imageUrl: 'assets/btcIllustrated/mindmap/test2.png',
+          tag: 'Week 5',
+          locked: true
         }
       ];
 

@@ -22,6 +22,7 @@ import { ToolsComponent } from './components/tools/tools.component';
 import { ReferencesComponent } from './components/references/references.component';
 import { VisualsComponent } from './components/visuals/visuals.component';
 import { TwitterHandleComponent } from './components/shared/twitter-handle/twitter-handle.component';
+import { TruncatePipe } from './directives/truncate-pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,10 @@ import { TwitterHandleComponent } from './components/shared/twitter-handle/twitt
     ToolsComponent,
     ReferencesComponent,
     VisualsComponent,
-    TwitterHandleComponent
+    TwitterHandleComponent,
+
+    
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

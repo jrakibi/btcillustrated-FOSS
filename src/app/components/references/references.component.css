@@ -1,96 +1,127 @@
-.resource-container {
-  }
-  .references-header {
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #343437;
-    color: #eeede1;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    flex-shrink: 0;
-    font-size: xx-large;
-    font-weight: normal;
+.reference-container {
+  background: #111b21; /* Dark background for the container */
+  color: #eeede1; /* Light text color for readability */
+  margin: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-  }
-  .search-bar input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .category-tabs {
-    text-align: center;
-    margin-bottom: 20px;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-    border-bottom: 1px solid #343437;
-    color: #eeede1;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    flex-shrink: 0;
-    font-size: xx-large;
-    font-weight: normal;
-  }
-  
-  .category-tabs button {
-    padding: 10px 20px;
-    background-color: #111b21;
-    color: white;
-    margin-right: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    border: 1px solid #eeede2;
+.references-header {
+  background: #111b21; /* Slightly lighter background for header */
+  color: #eeede1; /* Light text for contrast */
+  padding: 20px 0;
+  font-size: 24px;
+  text-align: center;
+}
 
-  }
+.references-header, .category-tabs {
+  width: 100%; /* Full width */
+  border-bottom: 1px solid #343436;
+  background: #111b21;
+  color: #eeede1;
+}
+
+.category-tabs {
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  gap: 10px;
+  background: #111b21; /* Consistent background for tab area */
+}
+
+.category-tab {
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid #eeede1;
+  color: #eeede1;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.category-tab:hover,
+.category-tab.active {
+  background-color: #eeede1;
+  color: #111b21; /* Dark text for active or hovered tabs */
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.resource-card {
+  background: #1a2b33; /* Card background color */
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.2s ease;
+
+  min-height: 340px; /* Adjust as needed */
+  display: flex;
+  flex-direction: column;
   
-  .category-tabs button:hover,
-  .category-tabs button.active {
-    background-color: #e6b800;
-  }
-  
-  .resource-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px 50px;
-  }
-  
-  .resource-card {
-    border: 1px solid #ddd;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-  }
-  
-  .resource-card img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 5px;
-    margin-bottom: 15px;
-  }
-  
-  .resource-card h3 {
-    margin: 0;
-    color: #333;
-  }
-  
-  .resource-card p {
-    color: #666;
-  }
-  
-  .resource-card a {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
-    background-color: #1a73e8;
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-  }
-  
-  .resource-card a:hover {
-    background-color: #0056b3;
-  }
-  
+}
+
+.resource-card:hover {
+  transform: translateY(-5px);
+}
+
+.resource-thumbnail {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.resource-info {
+  padding: 15px;
+  flex: 1; /* Allows the info area to expand to fill available space */
+  overflow: hidden;
+}
+
+.resource-title {
+  font-size: 18px;
+  color: #eeede1; /* Light color for title */
+  margin: 10px 0;
+}
+
+.resource-description {
+  font-size: 14px;
+  color: #eeede1; /* Light color for description */
+  margin-bottom: 15px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; /* Limit to 3 lines */
+  overflow: hidden;
+}
+
+.learn-more-btn {
+  background: #1a2b33;
+  color: #eeede1;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 5px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  align-self: baseline;
+  margin-bottom: 10px;
+  border: 0.4px solid;
+  margin-top: auto;
+  margin-left: 15px;
+}
+
+.learn-more-btn:hover {
+  background-color: #eeede1; /* Lighter color on hover */
+  color: #111b21;
+}
+
+/* Adjust the below styles as needed to make icons and help button consistent */
+.icon {
+  fill: #eeede1;
+}
+
+.help-button {
+  border: 2px solid #eeede1;
+}

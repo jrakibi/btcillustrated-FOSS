@@ -88,8 +88,8 @@
   }
   
   .left-panel {
-    width: 43%;
-    margin-right: 30px;
+    width: 40%;
+    margin-right: 70px;
   }
   
   .right-panel {
@@ -226,10 +226,11 @@ ngx-monaco-editor {
 .hints .title-coding-section, .examples .title-coding-section {
   border-bottom: 1px solid #ccc; /* Change the color as needed */
   display: block; /* Ensure it takes the full width */
-  width: 85%; /* Ensure it takes the full width */
+  width: 100%; /* Ensure it takes the full width */
   padding-bottom: 10px; /* Optional: Adds some space between the title and the border */
   margin-bottom: 20px; /* Optional: Adds some space between the title and the content below */
 }
+
 
 .hint-item {
   cursor: pointer; /* Change the cursor to indicate it's clickable */
