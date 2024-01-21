@@ -101,7 +101,7 @@ export class VisualsComponent {
               thumbnailLoaded: false
             }));
     
-            const id = 238
+            const id = this.illustrationsIds[0]
             if (id) {
               this.illustration = this.illustrations.filter(illustration => illustration.id == id)[0]
               this.imageCollection = this.illustration.imagePaths.map((imgSrc: any) => ({

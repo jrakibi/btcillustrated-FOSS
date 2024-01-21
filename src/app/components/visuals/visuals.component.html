@@ -17,8 +17,9 @@
                   <ng-container *ngFor="let illustration of illustrations; let i = index">
                     <!-- Card for each image and title -->
                     <div class="image-card" (click)="chooseIlllustration(illustration)" >
-                      <h3 class="image-title">{{illustration.title}}</h3>
                       <img [src]="illustration.imagePaths[0]" alt="Collection Image"  />
+                      <h3 class="image-title">{{illustration.title}}</h3>
+
                       <!-- <img [src]="illustration.src" alt="Collection Image" (click)="selectImage(i)" (load)="onLoadImage(image)" [hidden]="!image.loaded" /> -->
                     </div>
                   </ng-container>
@@ -82,7 +83,7 @@
                 target="_blank"
                 class="icon-wrapper"
               >
-                <i class="fa fa-github"></i>
+                <i class="fa-brands fa-github"></i>
               </a>
             </li>
             

@@ -115,7 +115,13 @@ ngx-monaco-editor {
     background-color: #111b21;
     font-family: 'Outfit';
     font-weight: 100;
+    color: white;
   }
+  .markdown-body pre {
+    color: #ffffff;
+    background-color: #1a2b33;
+  }
+
   .task-description {
     font-weight: 100;
   }
