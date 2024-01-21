@@ -1,0 +1,54 @@
+name: Deploy Frontend to AWS S3 and Invalidate CloudFront
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.16.0'
+
+      - name: Install specific npm version
+        run: npm install -g npm@8.11.0
+        
+      - name: Install Dependencies
+        run: |
+          npm install --force
+
+      - name: Build Angular Project
+        run: |
+          npx ng build --configuration production
+
+      - name: Configure AWS CLI
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install --update
+        env:
+          AWS_DEFAULT_REGION: us-east-2 
+      
+      - name: Sync Artifacts to S3
+        run: |
+          aws s3 sync ./dist/foss-btcillustrated s3://foss.btc-illustrated/ --delete --debug
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: us-east-2 
+
+      - name: Invalidate CloudFront Distribution
+        run: |
+          aws cloudfront create-invalidation --distribution-id E2E5XAETB8YOZZ --paths "/*" --region us-east-2 --debug
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
