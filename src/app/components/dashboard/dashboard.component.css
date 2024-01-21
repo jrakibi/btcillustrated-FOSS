@@ -725,3 +725,90 @@
   margin-right: 20px;
   cursor: pointer;
 }
+
+
+
+/* Modal Styling */
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #2a3b4c;
+  color: #ffffff;
+  margin: auto;
+  padding: 2rem;
+  border: 1px solid #4e6a85;
+  width: 50%; /* Adjusted to 50% for a narrower width */
+  max-width: 450px; /* Adjusted to a smaller max-width */
+  border-radius: 0.5rem;
+  box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2);
+  text-align: center;
+  line-height: 1.6;
+  font-family: 'Outfit', sans-serif;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+}
+
+.modal-content p {
+  margin-bottom: 1rem;
+}
+
+.modal-actions {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.modal-button {
+  padding: 0.8rem 1.6rem;
+  margin-top: 0.5rem;
+  border: none;
+  background-color: #4e6a85;
+  color: white;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  margin: auto;
+}
+
+.modal-button:hover {
+  background-color: #637992;
+}
+
+.modal-button .icon-placeholder {
+  /* Use a placeholder for the icon until you have the actual icon */
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  background-color: #fff; /* Replace with actual icon */
+  border-radius: 50%;
+}
+
+.feedback-button {
+  background-color: blanchedalmond; /* A different color to distinguish the feedback button */
+  color: #000000;
+}
+
+.feedback-button:hover {
+  background-color: #6b7b8c; /* A lighter color for hover */
+}
+/* Adjust this class according to the actual icon you will use */

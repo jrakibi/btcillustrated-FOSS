@@ -43,75 +43,75 @@ export class DashboardComponent implements OnInit {
 
   // Lifecycle hooks
   ngOnInit(): void {
-    
+
     this.activeWorkspace = this.appContext.retrieveActiveWorkspace() ?? WorkspaceEnum.Visuals
     this.showWorkspace(this.activeWorkspace)
-      this.weeks = [
-        {
-          title: 'Week 1',
-          imageUrl: 'assets/btcIllustrated/mindmap/test.png',
-          tag: 'Week 1',
-          locked: false
-        },
-        {
-          title: 'Week 2',
-          imageUrl: 'assets/btcIllustrated/mindmap/test2.png',
-          tag: 'Week 2',
-          locked: true
-        },
-        {
-          title: 'Week 3',
-          imageUrl: 'assets/btcIllustrated/mindmap/test3.png',
-          tag: 'Week 3',
-          locked: true
-        },
-        {
-          title: 'Week 4',
-          imageUrl: 'assets/btcIllustrated/mindmap/test.png',
-          tag: 'Week 4',
-          locked: true
-        },
-        {
-          title: 'Week 5',
-          imageUrl: 'assets/btcIllustrated/mindmap/test2.png',
-          tag: 'Week 5',
-          locked: true
-        }
-      ];
+    this.weeks = [
+      {
+        title: 'Week 0',
+        imageUrl: 'assets/btcIllustrated/mindmap/test.png',
+        tag: 'Week 0',
+        locked: false
+      },
+      {
+        title: 'Week 1',
+        imageUrl: 'assets/btcIllustrated/mindmap/test2.png',
+        tag: 'Week 1',
+        locked: true
+      },
+      {
+        title: 'Week 2',
+        imageUrl: 'assets/btcIllustrated/mindmap/test2.png',
+        tag: 'Week 2',
+        locked: true
+      },
+      {
+        title: 'Week 3',
+        imageUrl: 'assets/btcIllustrated/mindmap/test3.png',
+        tag: 'Week 3',
+        locked: true
+      },
+      {
+        title: 'Week 4',
+        imageUrl: 'assets/btcIllustrated/mindmap/test.png',
+        tag: 'Week 4',
+        locked: true
+      }
+    ];
 
 
-      this.workspaces = [
-        {
-          title: 'Problem',
-          imageUrl: 'assets/btcIllustrated/icons/problem2.png',
-          tag: WorkspaceEnum.Problem
-        },
-        {
-          title: 'Coding',
-          imageUrl: 'assets/btcIllustrated/icons/code.png',
-          tag: WorkspaceEnum.Coding
-        },
-        {
-          title: 'Visuals',
-          imageUrl: 'assets/btcIllustrated/icons/visuals.png',
-          tag: WorkspaceEnum.Visuals
-        },
-        {
-          title: 'References',
-          imageUrl: 'assets/btcIllustrated/icons/deepdive.png',
-          tag: WorkspaceEnum.References
-        },
-        {
-          title: 'Tools',
-          imageUrl: 'assets/btcIllustrated/icons/analogy.png',
-          tag: WorkspaceEnum.Tools
-        },
-        {
-          title: 'About',
-          imageUrl: '',
-          tag: WorkspaceEnum.About
-        }
-      ];
+    this.workspaces = [
+      {
+        title: 'Problem',
+        imageUrl: 'assets/btcIllustrated/icons/problem2.png',
+        tag: WorkspaceEnum.Problem
+      },
+      {
+        title: 'Coding',
+        imageUrl: 'assets/btcIllustrated/icons/code.png',
+        tag: WorkspaceEnum.Coding
+      },
+      {
+        title: 'Visuals',
+        imageUrl: 'assets/btcIllustrated/icons/visuals.png',
+        tag: WorkspaceEnum.Visuals
+      },
+      {
+        title: 'References',
+        imageUrl: 'assets/btcIllustrated/icons/deepdive.png',
+        tag: WorkspaceEnum.References
+      },
+      {
+        title: 'Tools',
+        imageUrl: 'assets/btcIllustrated/icons/analogy.png',
+        tag: WorkspaceEnum.Tools
+      },
+      {
+        title: 'About',
+        imageUrl: '',
+        tag: WorkspaceEnum.About
+      }
+    ];
   }
 
   ngAfterViewInit(): void {
@@ -126,29 +126,42 @@ export class DashboardComponent implements OnInit {
   }
 
   async showWorkspace(workspace: WorkspaceEnum) {
-    
+
     this.activeWorkspace = workspace
     this.appContext.storeActiveWorkspace(this.activeWorkspace)
   }
 
+  isModalVisible: boolean = false;
+
   navigateToWorkspace(week: Week) {
     // If the week is locked, return early and do nothing
     if (week.locked) {
+      this.isModalVisible = true;
+
       return;
     }
-    
-    
+
+
     this.activeWorkspace = this.Workspace.Coding
     this.appContext.storeActiveWorkspace(this.activeWorkspace)
     // Navigate to the 'app-problem' workspace or handle as needed
     // Assuming 'app-problem' is a route you have set up in your routing module
     this.router.navigate(['/app-problem']);
   }
-  
+
+  closeModal() {
+    this.isModalVisible = false;
+  }
   public showHistory: boolean = true;
 
   toggleHistory() {
     debugger
     this.showHistory = !this.showHistory;
   }
+  goToFeedbackForm() {
+    this.isModalVisible = false;
+
+    // Logic to navigate to the feedback form or open a feedback modal/dialog
+  }
+  
 }

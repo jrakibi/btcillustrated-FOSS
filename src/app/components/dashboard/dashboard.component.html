@@ -5,12 +5,13 @@
             <div class="history-header">
                 <!-- <i class="fas fa-arrow-left"></i> -->
                 <span>
-                    History
+                    Weeks
 
                 </span>
                 <span>
-                    <svg *ngIf="showHistory"  (click)="toggleHistory()" xmlns="http://www.w3.org/2000/svg" height="15" width="15"
-                        viewBox="0 0 512 512" style="cursor: pointer;"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
+                    <svg *ngIf="showHistory" (click)="toggleHistory()" xmlns="http://www.w3.org/2000/svg" height="15"
+                        width="15" viewBox="0 0 512 512"
+                        style="cursor: pointer;"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
                         <path fill="#ffffff"
                             d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z" />
                     </svg>
@@ -18,17 +19,17 @@
             </div>
             <div class="card" *ngFor="let week of weeks; let i = index" (click)="navigateToWorkspace(week)">
                 <div class="image-container">
-                  <img src="{{ week.imageUrl }}" alt="Week" onerror="this.style.display='none'" />
-                  <div *ngIf="!week.imageUrl" class="fallback-image">No Image</div>
+                    <img src="{{ week.imageUrl }}" alt="Week" onerror="this.style.display='none'" />
+                    <div *ngIf="!week.imageUrl" class="fallback-image">No Image</div>
                 </div>
                 <!-- Lock overlay for locked modules -->
                 <div *ngIf="i > 0" class="locked-overlay">
-                  <!-- Replace with an img tag pointing to your lock image -->
-                  <img src="assets/dashboard/lock.png" alt="Locked" />
+                    <!-- Replace with an img tag pointing to your lock image -->
+                    <img src="assets/dashboard/lock.png" alt="Locked" />
                 </div>
                 <div class="card-tag">{{week.tag}}</div>
-              </div>
-              
+            </div>
+
 
 
         </div>
@@ -40,11 +41,12 @@
             <div class="workspace-header">
 
                 <div class="header-left">
-                    <svg (click)="toggleHistory()" *ngIf="!showHistory" xmlns="http://www.w3.org/2000/svg" height="15" width="15" viewBox="0 0 512 512" [ngClass]="{'arrow-right': !showHistory}">
+                    <svg (click)="toggleHistory()" *ngIf="!showHistory" xmlns="http://www.w3.org/2000/svg" height="15"
+                        width="15" viewBox="0 0 512 512" [ngClass]="{'arrow-right': !showHistory}">
                         <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.-->
-                    <path fill="#ffffff"
-                        d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z" />
-                </svg>
+                        <path fill="#ffffff"
+                            d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z" />
+                    </svg>
                     <i class="fas fa-brain"></i>
                     <span class="mind-map-title">Week 0: RPC Scavenger Hunt
                     </span>
@@ -99,7 +101,22 @@
                 </div>
                 <!-- Rest of your footer content -->
             </div>
-            
+
 
         </div>
     </div>
+
+<!-- Modal -->
+<div class="modal" *ngIf="isModalVisible">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Coming Soon</h2>
+      </div>
+      <p>Thank you for your eagerness to learn! The content for this week will be unlocked soon.</p>
+      <p style="font-size: smaller; color: blanchedalmond;">*Help us enhance your learning experience by sharing your feedback.</p>
+      <div class="modal-actions">
+        <button (click)="goToFeedbackForm()" class="modal-button feedback-button">Give Feedback</button>
+      </div>
+    </div>
+  </div>
+  
