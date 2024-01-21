@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgAnimatedBorderModule } from 'ng-animated-border';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProblemComponent } from './components/problem/problem.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MonacoEditorModule } from 'ngx-monaco-editor';
@@ -23,6 +23,10 @@ import { ReferencesComponent } from './components/references/references.componen
 import { VisualsComponent } from './components/visuals/visuals.component';
 import { TwitterHandleComponent } from './components/shared/twitter-handle/twitter-handle.component';
 import { TruncatePipe } from './directives/truncate-pipe';
+import { AboutComponent } from './components/about/about.component';
+
+import { SlickCarouselModule } from 'ngx-slick-carousel';
+import { NgxTwitterWidgetsModule } from "ngx-twitter-widgets";
 
 @NgModule({
   declarations: [
@@ -36,8 +40,9 @@ import { TruncatePipe } from './directives/truncate-pipe';
     VisualsComponent,
     TwitterHandleComponent,
 
-    
-    TruncatePipe
+
+    TruncatePipe,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +52,7 @@ import { TruncatePipe } from './directives/truncate-pipe';
     RouterModule,
     CommonModule,
     HttpClientModule,
-    
+
     FormsModule,
     ReactiveFormsModule,
 
@@ -59,6 +64,11 @@ import { TruncatePipe } from './directives/truncate-pipe';
     NgAnimatedBorderModule,
     MatDialogModule,
     MatProgressSpinnerModule,
+
+
+    SlickCarouselModule,
+    NgxTwitterWidgetsModule,
+
     MonacoEditorModule.forRoot() // use forRoot() in main app module only.
 
 

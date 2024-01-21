@@ -27,6 +27,10 @@
     "monaco-editor": "^0.24.0",
     "ng-animated-border": "^2.0.0",
     "ngx-monaco-editor": "^12.0.0",
+    "jquery": "^3.7.1",
+    "slick-carousel": "^1.8.1",
+    "ngx-slick-carousel": "^0.5.1",
+    "ngx-twitter-widgets": "^1.0.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
