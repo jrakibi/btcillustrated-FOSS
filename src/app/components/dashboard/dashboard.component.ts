@@ -160,8 +160,7 @@ export class DashboardComponent implements OnInit {
   }
   goToFeedbackForm() {
     this.isModalVisible = false;
-
-    // Logic to navigate to the feedback form or open a feedback modal/dialog
+    window.open('https://github.com/jrakibi/btcillustrated-FOSS/issues/new?assignees=&labels=feedback&projects=&template=01-suggest-changes.yml', '_blank');
   }
   
 }
