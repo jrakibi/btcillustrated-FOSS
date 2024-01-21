@@ -1,0 +1,64 @@
+name: "Platform Feedback Submission"
+description: Share your feedback or suggestions to improve our open-source Bitcoin development education platform.
+labels: ["user feedback", "enhancement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: "We value your input and are committed to making our Bitcoin development platform the best resource for open-source learning. Please fill out the form below to share your feedback or suggestions with us."
+
+  - type: input
+    id: feedback-summary
+    attributes:
+      label: "Summary of Your Feedback"
+      description: "Please provide a brief summary of your feedback or suggestion."
+      placeholder: "Summarize your feedback here."
+    validations:
+      required: true
+
+  - type: textarea
+    id: feedback-details
+    attributes:
+      label: "Detailed Feedback"
+      description: "Describe in detail the feedback or suggestions you have for the platform."
+      placeholder: "I think it would be beneficial to add/improve..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: benefit
+    attributes:
+      label: "Expected Benefit"
+      description: "Explain how your feedback or suggestion will benefit the platform and its users."
+      placeholder: "This suggestion will improve the platform by..."
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-information
+    attributes:
+      label: "Additional Information"
+      description: "Any other comments or information you'd like to provide that can help us understand your feedback better."
+      placeholder: "Additional information or related experiences..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: feature-area
+    attributes:
+      label: "Feature Area"
+      description: "Which area of the platform does your feedback relate to?"
+      options:
+        - "User Interface"
+        - "Content Accuracy"
+        - "Interactive Elements"
+        - "Code Examples"
+        - "Visuals and Graphics"
+        - "Navigation and Layout"
+        - "Performance and Speed"
+        - "Other"
+    validations:
+      required: true
+
+footer: "Thank you for helping us enhance the learning experience for the Bitcoin development community!"
