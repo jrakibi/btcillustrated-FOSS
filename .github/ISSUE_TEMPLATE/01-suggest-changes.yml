@@ -1,25 +1,25 @@
-name: "✍️ ​ ​Suggest Bitcoin Roadmap Changes"
-description: Help us improve the Bitcoin roadmap by suggesting changes
-labels: [suggestion]
+name: "Platform Feedback Submission"
+description: Share your feedback or suggestions to improve our open-source Bitcoin development education platform.
+labels: [feedback]
 assignees: []
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to help us improve the Bitcoin roadmap with your suggestions.
+        Thanks for taking the time to help us improve this plateform with your feedback.
   - type: input
     id: title
     attributes:
       label: Title
-      description: Please provide a title for your suggestion.
-      placeholder: Enter a title for your suggestion.
+      description: Please provide a title for your feedback.
+      placeholder: Enter a title for your feedback.
     validations:
       required: true
   - type: textarea
-    id: roadmap-suggestions
+    id: feedback-details
     attributes:
-      label: Suggestions
-      description: What changes would you like to suggest for the Bitcoin roadmap?
-      placeholder: Enter your suggestions here.
+      label: Feedback
+      description: Describe in detail the feedback or suggestions you have for the platform.
+      placeholder: Enter your feedback here.
     validations:
       required: true
