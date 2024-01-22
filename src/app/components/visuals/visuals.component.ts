@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Illustration } from 'src/app/models/visual.model';
 import { IllustrationService } from 'src/app/services/illustration-service';
 import { DataService } from 'src/app/services/data.service';
+import { LnurlPayDialogComponent } from '../shared/lnurl-pay-dialog/lnurl-pay-dialog.component';
 // import { LnurlPayDialogComponent } from 'src/app/features/illustration/lnurl-pay-dialog/lnurl-pay-dialog.component';
 // import { IllustrationGptComponent } from '../illustration-gpt/illustration-gpt.component';
 declare var $: any; // Import jQuery
@@ -165,13 +166,13 @@ export class VisualsComponent {
   }
 
   openDialog(): void {
-    // const dialogRef = this.dialog.open(LnurlPayDialogComponent,
+    const dialogRef = this.dialog.open(LnurlPayDialogComponent,
 
-    // );
+    );
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed', result);
-    // });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
   }
 
   openGptDialog() {
