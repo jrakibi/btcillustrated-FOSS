@@ -110,8 +110,8 @@
     </div>
 
 <!-- Modal -->
-<div class="modal" *ngIf="isModalVisible">
-    <div class="modal-content">
+<div class="modal" *ngIf="isModalVisible" (click)="closeModal2($event)">
+    <div class="modal-content" (click)="$event.stopPropagation()">
       <div class="modal-header">
         <h2>Coming Soon</h2>
       </div>

@@ -13,4 +13,14 @@ export class ThanksModalComponent {
     this.show = false;
     this.showChange.emit(this.show);
   }
+
+  closeModal2(event?: MouseEvent) {
+    // Check if the click event is available and it is on the modal backdrop
+    if (!event || (event && event.target === event.currentTarget)) {
+      this.show = false;
+    this.showChange.emit(this.show);
+
+    }
+  }
+  
 }

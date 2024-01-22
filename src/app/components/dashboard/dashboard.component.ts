@@ -168,4 +168,11 @@ export class DashboardComponent implements OnInit {
     window.open('https://github.com/jrakibi/btcillustrated-FOSS/issues/new?assignees=&labels=feedback&projects=&template=01-suggest-changes.yml', '_blank');
   }
   
+  closeModal2(event?: MouseEvent) {
+    // Check if the click event is available and it is on the modal backdrop
+    if (!event || (event && event.target === event.currentTarget)) {
+      this.isModalVisible = false;
+    }
+  }
+  
 }
