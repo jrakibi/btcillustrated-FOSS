@@ -20,9 +20,6 @@
         "validatorFunction": "validateBlockHash"
       },
       "hints": [
-        "Solvable with a single `bitcoin-cli` commands",
-        "Solvable with a single `bitcoin-cli` commands",
-        "Solvable with a single `bitcoin-cli` commands",
         "Solvable with a single `bitcoin-cli` commands"
       ],
       "examplesPath": [
