@@ -1,0 +1,193 @@
+.header {
+    background-color: #1a2b33;
+    color: #fff;
+    padding: 1rem;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.header h1 {
+    margin: 0;
+}
+
+.main-content {
+    padding: 2rem;
+    width: 53%;
+    margin: auto;
+}
+
+.note-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.note-form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.note-form textarea {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    min-height: 100px;
+}
+
+.note-form select {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.note-form button {
+    padding: 0.5rem 1rem;
+    background-color: #00796b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.note-form button:hover {
+    background-color: #005b4f;
+}
+
+.note-form button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.notes-list h2 {
+    text-align: left;
+    margin-top: 0;
+}
+
+.note-item {
+    background-color: #fff;
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.note-item p {
+    margin: 0;
+    word-break: break-word;
+}
+
+.actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.actions button {
+    background-color: #00796b;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    padding: 0.3rem 0.6rem;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.actions button:hover {
+    background-color: #005b4f;
+}
+
+/* Styles for the parent container and blurred content */.blurred-container {
+    position: relative;
+    /* Other styles remain the same */
+}
+
+.content {
+    filter: blur(20px);
+    /* Other styles remain the same */
+}
+
+.blurred-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10; /* Ensures the overlay is above the blurred content */
+    width: 100%;
+    max-width: 30%;
+}
+
+.blurred-overlay img {
+    max-width: 80px; /* Slightly reduced size for the lock image */
+    display: block;
+    margin: 0px auto 6px;
+}
+
+.development-text {
+    background: rgba(255, 255, 255, 0.95);
+    color: #333;
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-size: 1.8rem;
+    font-weight: 500;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ccc;
+
+    /* flex-direction: row; 
+    text-align: left; 
+    gap: 20px; */
+
+
+
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    text-align: center; /* Center text horizontally */
+    gap: 15px; /* Adjust the gap between items */
+}
+
+.development-text .lock-icon {
+    margin: 0; /* Remove any margin from the image */
+  }
+  .feedback-button:hover {
+    background-color: #6b7b8c; /* A lighter color for hover */
+  }
+  .feedback-button {
+    padding: 10px 18px;
+    /* margin-top: 20px; */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+    background-color: #fafafb;
+    color: #111b21;
+    border: 1px solid black;
+  }
+
+  .feed-helpus {
+    font-size: 14px;
+    color: #1a2b33;
+    text-align: left;
+    font-weight: 200;
+  }  
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .blurred-overlay {
+    max-width: 90%; /* Take more width on smaller screens */
+  }
+
+  .development-text {
+    padding: 30px; /* Adjust padding for smaller screens */
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
+  }
+}

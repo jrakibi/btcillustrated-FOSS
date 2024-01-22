@@ -36,6 +36,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { ThanksModalComponent } from './components/shared/thanks-modal/thanks-modal.component';
+import { NotesComponent } from './components/notes/notes.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ThanksModalComponent } from './components/shared/thanks-modal/thanks-mo
     LnurlPayDialogComponent,
 
     AboutComponent,
-     ThanksModalComponent
+     ThanksModalComponent,
+     NotesComponent
   ],
   imports: [
     BrowserModule,

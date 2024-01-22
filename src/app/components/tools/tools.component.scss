@@ -89,6 +89,10 @@
       .footer-text {
         font-size: 0.9rem; // Text size for the footer
       }
+
+      img, span {
+        cursor: pointer;
+      }
     }
   
     .card-header-icon {

@@ -11,7 +11,8 @@
   background: #111b21; /* Slightly lighter background for header */
   color: #eeede1; /* Light text for contrast */
   padding: 20px 0;
-  font-size: 24px;
+  font-size: x-large;
+  font-weight: normal;
   text-align: center;
 }
 
