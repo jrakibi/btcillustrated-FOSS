@@ -1,0 +1,33 @@
+/* Styles for the parent container and blurred content */
+.blurred-container {
+    position: relative;
+  }
+  
+  .content {
+    filter: blur(8px);
+  }
+  
+  /* Styles for the overlay */
+  .blurred-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10; /* Ensures the overlay is above the blurred content */
+  }
+  
+  .blurred-overlay img {
+    max-width: 100px; /* Adjust the size as needed */
+    margin-bottom: 20px;
+  }
+  
+  .development-text {
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    padding: 10px;
+    border-radius: 8px;
+    display: inline-block; /* To wrap the text around the content */
+    font-size: 1.2rem; /* Adjust the size as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow */
+  }
+  
