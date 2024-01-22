@@ -35,4 +35,11 @@ export class ToolsComponent implements OnInit {
   getGradient(color: string): string {
     return `linear-gradient(145deg, ${color}, #1a2b33)`;
   }
+
+  navigate(url: string): void {
+    debugger
+    if(url) {
+      window.open(url, '_blank');
+    }
+  }
 }

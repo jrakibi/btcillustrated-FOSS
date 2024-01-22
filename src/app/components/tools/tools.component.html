@@ -1,31 +1,28 @@
 <div class="card-container" *ngIf="tools; else loadingTemplate">
   <h2 class="tools-title">Essential Tools for this week assignment</h2>
-
-    <div class="card-grid">
-      <div class="card" *ngFor="let tool of tools">
-        <div class="card-header">
-          <div class="icon-container" [ngStyle]="{'background': getGradient(tool.color)}">
-            <img [src]="tool.headerIconUrl" [alt]="tool.title" class="card-header-icon">
-          </div>
-          <button class="visit-btn">
-            <i class="fas fa-globe"></i> Visit Website
-          </button>
+  <div class="card-grid">
+    <div class="card" *ngFor="let tool of tools">
+      <div class="card-header">
+        <div class="icon-container" [ngStyle]="{'background': getGradient(tool.color)}">
+          <img [src]="tool.headerIconUrl" [alt]="tool.title" class="card-header-icon">
         </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ tool.title }}</h5>
-          <p class="card-text">
-            {{ tool.description }}
-          </p>
-        </div>
-        <div class="card-footer">
-          <img [src]="tool.footerIconUrl" [alt]="tool.title" class="card-footer-icon">
-          <span>{{ tool.footerText }}</span>
-        </div>
+        <a class="visit-btn" (click)="navigate(tool.projectLink)"  rel="noopener noreferrer">
+          <i class="fas fa-globe"></i> Visit Website
+        </a>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ tool.title }}</h5>
+        <p class="card-text">{{ tool.description }}</p>
+      </div>
+      <div class="card-footer" >
+        <img [src]="tool.footerIconUrl" (click)="navigate(tool.authorLink)" [alt]="tool.footerText" class="card-footer-icon">
+        <span (click)="navigate(tool.authorLink)">{{ tool.footerText }}</span>
       </div>
     </div>
   </div>
-  
-  <ng-template #loadingTemplate>
-    <div *ngIf="loading" class="loading">Loading...</div>
-    <div *ngIf="error" class="error">{{ error }}</div>
-  </ng-template>
+</div>
+
+<ng-template #loadingTemplate>
+  <div *ngIf="loading" class="loading">Loading...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+</ng-template>

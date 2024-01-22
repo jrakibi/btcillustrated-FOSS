@@ -6,8 +6,8 @@
     "footerText": "@Siminchen",
     "headerIconUrl": "assets/tools/icons/bitcoinIDE.png",
     "footerIconUrl": "assets/tools/icons/bitcoinIDE_builder.png",
-    "authorLink": "",
-    "projectLink": "",
+    "authorLink": "https://github.com/siminchen",
+    "projectLink": "https://siminchen.github.io/bitcoinIDE/build/editor.html",
     "color": "#f79322"
   },
   {
@@ -28,8 +28,8 @@
     "footerText": "@thunderbiscuit",
     "headerIconUrl": "assets/tools/icons/opcodeExplained.png",
     "footerIconUrl": "assets/tools/icons/opcodeExplained_builder.jpeg",
-    "authorLink": "",
-    "projectLink": "",
+    "authorLink": "https://github.com/thunderbiscuit",
+    "projectLink": "https://opcodeexplained.com/",
     "color": "#55B685"
   },
   {
@@ -39,8 +39,8 @@
     "footerText": "@The_Bitcoin_Dev_Project",
     "headerIconUrl": "assets/tools/icons/chatbtc.png",
     "footerIconUrl": "assets/tools/icons/chatbtc_builder.png",
-    "authorLink": "",
-    "projectLink": "",
+    "authorLink": "https://bitcoindevs.xyz/",
+    "projectLink": "https://chat.bitcoinsearch.xyz/",
     "color": "#EBB063"
   },
 
@@ -60,12 +60,12 @@
   {
     "icon": "fa-cog",
     "title": "AI Tutor",
-    "description": "Your Bitcoin AI tutor ",
+    "description": "Your Bitcoin AI tutor: Get any Bitcoin concept explained like you're 5 yo (coming soon) ",
     "footerText": "@BTCillustrated",
     "headerIconUrl": "assets/tools/icons/btcillustrated.png",
     "footerIconUrl": "assets/tools/icons/btcillustrated_builder.jpeg",
-    "authorLink": "",
-    "projectLink": "",
+    "authorLink": "https://twitter.com/BTCillustrated",
+    "projectLink": "https://btc-illustrated.com/",
     "color": "#fcdddd"
   },
   {
@@ -88,6 +88,6 @@
     "footerIconUrl": "https://ricostacruz.com/tilnotes.assets/rstacruz.GZBW5QT0_1FGtWc.webp",
     "authorLink": "https://devhints.io/bash#dictionaries",
     "projectLink": "https://devhints.io/bash#dictionaries",
-    "color": "#000"
+    "color": "#a06ed7"
   }
 ]

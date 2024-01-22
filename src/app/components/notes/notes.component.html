@@ -2,38 +2,65 @@
 <div class="blurred-container">
     <!-- This is the blurred content -->
     <div class="content">
-      <h3>Note Title</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum.</p>
-      <ul>
-        <li>Point one of the note</li>
-        <li>Point two of the note</li>
-        <li>Additional detail</li>
-        <li>Point one of the note</li>
-        <li>Point two of the note</li>
-        <li>Additional detail</li>
-        <li>Point one of the note</li>
-        <li>Point two of the note</li>
-        <li>Additional detail</li>
-        <li>Point one of the note</li>
-        <li>Point two of the note</li>
-        <li>Additional detail</li>
-        <li>Point one of the note</li>
-        <li>Point two of the note</li>
-        <li>Additional detail</li>
-        <li>Point one of the note</li>
-        <li>Point two of the note</li>
-        <li>Additional detail</li>
-        <li>Point one of the note</li>
-        <li>Point two of the note</li>
-        <li>Additional detail</li>
-      </ul>
+        <div class="note-taking-container">
+            <header class="header">
+              <h1>Take notes for Week 0 assignment</h1>
+            </header>
+            <main class="main-content">
+              <form [formGroup]="notesForm" class="note-form">
+                <label for="noteText">Your Note:</label>
+                <textarea id="noteText" formControlName="noteText" placeholder="Enter your note here..."></textarea>
+                <label for="noteColor">Choose Color:</label>
+                <select id="noteColor" formControlName="noteColor">
+                  <option value="">Select color...</option>
+                  <option *ngFor="let color of noteColorList" [ngValue]="color">{{ color }}</option>
+                </select>
+                <button type="button" (click)="saveNote()" [disabled]="notesForm.invalid">
+                  {{ editData ? "Update Note" : "Add Note" }}
+                </button>
+              </form>
+              <section class="notes-list">
+                <h2>Your Notes:</h2>
+                <div *ngFor="let note of notesList" [style.background]="note.noteColor" class="note-item">
+                  <p>{{ note.noteText }}</p>
+                  <div class="actions">
+                    <button type="button" (click)="editNote(note)">Edit</button>
+                    <button type="button" (click)="deleteNote(note.id)">Delete</button>
+                  </div>
+                </div>
+              </section>
+            </main>
+          </div>
+          
       <!-- Add more fake data if needed -->
     </div>
   
     <!-- This is the overlay with a lock image and text -->
-    <div class="blurred-overlay">
-      <img src="assets/dashboard/lock.png" alt="Under Development">
-      <p class="development-text">Taking Note feature is under development</p>
+<!-- Overlay Content -->
+<!-- <div class="blurred-overlay">
+  <div class="overlay-content">
+    <div class="development-text">
+      <img src="assets/dashboard/lock-black.png" alt="Under Development" class="lock-icon">
+      <span>Note Taking feature will be available shortly.</span>
     </div>
+  </div>
+</div> -->
+
+<div class="blurred-overlay">
+  <div class="overlay-content">
+    <div class="development-text">
+      <img src="assets/dashboard/lock-black.png" alt="Feature in Progress" class="lock-icon">
+      <span>Note Taking feature will be available shortly.</span>
+      <!-- <button (click)="openFeedbackForm()" class="feedback-button">Give Us Feedback</button> -->
+
+      <p class="feed-helpus" >*Help us enhance your learning experience by sharing your feedback.</p>
+      <div class="modal-actions">
+        <button (click)="openFeedbackForm()" class="modal-button feedback-button">Give Feedback</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
   </div>
   
