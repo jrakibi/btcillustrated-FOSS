@@ -4,6 +4,7 @@ Product #1 (BTCillustrated): The all-new interactive learning experience that te
 https://foss.btc-illustrated.com
 
 - Material from @ChainCodeLabs program: https://learning.chaincode.com/#FOSS
+- Material from @BTrust Builders (Qala) program soon
 
 - Pages:
 
