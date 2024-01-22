@@ -10,6 +10,36 @@
     "referenceLink": "https://github.com/bitcoin/bips/blob/deae64bfd31f6938253c05392aa355bf6d7e7605/bip-0141.mediawiki#p2wpkh"
   },
   {
+    "thumbnailUrl": "https://www.walletmart.io/wp-content/uploads/2019/09/5d6cbdf84a37b.png",
+    "title": "Support for Output Descriptors in Bitcoin Core",
+    "description": "Since Bitcoin Core v0.17, there is support for Output Descriptors. This is a simple language which can be used to describe collections of output scripts. Supporting RPCs are:",
+    "author": "bitcoinhodler",
+    "authorIconUrl": "https://avatars.githubusercontent.com/u/31543633?s=96&v=4",
+    "tags": [],
+    "type": "documentation",
+    "referenceLink": "https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md"
+  },
+  {
+    "thumbnailUrl": "https://curity.io/images/resources/code-examples/code-examples-stackexchange.jpg",
+    "title": "How to check if an output has been spent?",
+    "description": "Using an rpc client (e.g. bitcoin-cli), for a given transaction and index of an output of it, how can I tell if the output is currently an utxo, or if it has already been spent?",
+    "author": "shx2",
+    "authorIconUrl": "https://i.stack.imgur.com/B8PLE.jpg?s=64&g=1",
+    "tags": [],
+    "type": "stackExchange",
+    "referenceLink": "https://bitcoin.stackexchange.com/questions/48504/how-to-check-if-an-output-has-been-spent"
+  },
+  {
+    "thumbnailUrl": "https://ioflood.com/blog/wp-content/uploads/2023/11/jq-select-function-highlighted-on-JSON-segments-300x300.jpg.webp",
+    "title": "The jq ‘select’ Command | Your Key to JSON Data Filtering",
+    "description": "Are you finding it challenging to filter JSON data using the jq ‘select’ command? You’re not alone. Many developers find themselves in a maze when it comes to handling JSON data filtering, but we’re here to help.",
+    "author": "Gabriel Ramuglia",
+    "authorIconUrl": "https://ioflood.com/blog/wp-content/litespeed/avatar/8cae107a24f7846cf96d901f73f43d02.jpg?ver=1705450030",
+    "tags": [],
+    "type": "article",
+    "referenceLink": "https://ioflood.com/blog/wp-content/uploads/2023/11/jq-select-function-highlighted-on-JSON-segments-300x300.jpg.webp"
+  },
+  {
     "thumbnailUrl": "https://m.media-amazon.com/images/I/81WSOo0pMaL._AC_UF1000,1000_QL80_.jpg",
     "title": "Chapter 07 (Mastering Bitcoin) Advanced Transactions and Scripting",
     "description": "In the previous chapter, we introduced the basic elements of bitcoin transactions and looked at the most common type of transaction script, the P2PKH script. In this chapter we will look at more advanced scripting and how we can use it to build transactions with complex conditions.",
@@ -30,14 +60,14 @@
     "referenceLink": "https://chaincode.gitbook.io/seminars/bitcoin-protocol-development/segwit"
   },
   {
-    "thumbnailUrl": "https://yt3.googleusercontent.com/jUeiNI4-3zbstN4ogj7qjvygNzYRTZKtxnntntqf1FfMSpM5vqy5rgkmjsBZvnF_dRFL3jh_zQ=s176-c-k-c0x00ffffff-no-rj",
-    "title": "What is Segwit?",
-    "description": "What is Segwit? Segregated Witness Explained Simply",
-    "author": "99Bitcoins",
-    "authorIconUrl": "https://yt3.googleusercontent.com/jUeiNI4-3zbstN4ogj7qjvygNzYRTZKtxnntntqf1FfMSpM5vqy5rgkmjsBZvnF_dRFL3jh_zQ=s176-c-k-c0x00ffffff-no-rj",
+    "thumbnailUrl": "https://ip.bitcointalk.org/?u=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F603732-1pKwMg1526045364.png&t=657&c=DIUqOIWhCTnCBw",
+    "title": "ECDSA Signatures allow recovery of the public key",
+    "description": "I recently read in the sec pdf file (see http://www.secg.org/download/aid-780/sec1-v2.pdf, pages 47-48, section 4.1.6) that it is possible to recover the public key used in an ECDSA signature. After an IRC conversation, this was implemented and tested by roconnor, and it seems to be possible indeed.",
+    "author": "Pieter Wuille",
+    "authorIconUrl": "",
     "tags": [],
-    "type": "video",
-    "referenceLink": "https://www.youtube.com/watch?v=f3CFUbeehc8"
+    "type": "documentation",
+    "referenceLink": "https://bitcointalk.org/index.php?topic=6430.0"
   },
   {
     "thumbnailUrl": "https://static.wixstatic.com/media/54af57_377e83ad1a2f4966bea770359e74b136~mv2.png/v1/fill/w_640,h_360,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/54af57_377e83ad1a2f4966bea770359e74b136~mv2.png",
@@ -68,16 +98,6 @@
     "tags": [],
     "type": "book",
     "referenceLink": "https://github.com/jimmysong/programmingbitcoin"
-  },
-  {
-    "thumbnailUrl": "https://ioflood.com/blog/wp-content/uploads/2023/11/jq-select-function-highlighted-on-JSON-segments-300x300.jpg.webp",
-    "title": "The jq ‘select’ Command | Your Key to JSON Data Filtering",
-    "description": "Are you finding it challenging to filter JSON data using the jq ‘select’ command? You’re not alone. Many developers find themselves in a maze when it comes to handling JSON data filtering, but we’re here to help.",
-    "author": "Gabriel Ramuglia",
-    "authorIconUrl": "https://ioflood.com/blog/wp-content/litespeed/avatar/8cae107a24f7846cf96d901f73f43d02.jpg?ver=1705450030",
-    "tags": [],
-    "type": "article",
-    "referenceLink": "https://ioflood.com/blog/wp-content/uploads/2023/11/jq-select-function-highlighted-on-JSON-segments-300x300.jpg.webp"
   },
   {
     "thumbnailUrl": "https://miro.medium.com/v2/resize:fit:1200/1*7I28RUYwZPeJ52uZrVtMMQ.png",
@@ -120,16 +140,6 @@
     "referenceLink": "https://chainquery.com/bitcoin-cli/createmultisig"
   },
   {
-    "thumbnailUrl": "https://ip.bitcointalk.org/?u=https%3A%2F%2Fwww.seoclerk.com%2Fpics%2F603732-1pKwMg1526045364.png&t=657&c=DIUqOIWhCTnCBw",
-    "title": "ECDSA Signatures allow recovery of the public key",
-    "description": "I recently read in the sec pdf file (see http://www.secg.org/download/aid-780/sec1-v2.pdf, pages 47-48, section 4.1.6) that it is possible to recover the public key used in an ECDSA signature. After an IRC conversation, this was implemented and tested by roconnor, and it seems to be possible indeed.",
-    "author": "Pieter Wuille",
-    "authorIconUrl": "",
-    "tags": [],
-    "type": "documentation",
-    "referenceLink": "https://bitcointalk.org/index.php?topic=6430.0"
-  },
-  {
     "thumbnailUrl": "https://pbs.twimg.com/profile_images/923443851456528385/ukWFr1dM_400x400.jpg",
     "title": "Bash scripting cheatsheet",
     "description": "This is a quick reference to getting started with Bash scripting.",
@@ -140,6 +150,16 @@
     "referenceLink": "https://devhints.io/bash#dictionaries"
   },
   {
+    "thumbnailUrl": "https://yt3.googleusercontent.com/jUeiNI4-3zbstN4ogj7qjvygNzYRTZKtxnntntqf1FfMSpM5vqy5rgkmjsBZvnF_dRFL3jh_zQ=s176-c-k-c0x00ffffff-no-rj",
+    "title": "What is Segwit?",
+    "description": "What is Segwit? Segregated Witness Explained Simply",
+    "author": "99Bitcoins",
+    "authorIconUrl": "https://yt3.googleusercontent.com/jUeiNI4-3zbstN4ogj7qjvygNzYRTZKtxnntntqf1FfMSpM5vqy5rgkmjsBZvnF_dRFL3jh_zQ=s176-c-k-c0x00ffffff-no-rj",
+    "tags": [],
+    "type": "video",
+    "referenceLink": "https://www.youtube.com/watch?v=f3CFUbeehc8"
+  },
+  {
     "thumbnailUrl": "https://nickjanetakis.com/assets/blog/cards/associative-arrays-in-bash-aka-key-value-dictionaries-9fddf0c3edd1453dcacd240f01993c3f9fc85d1d3a21995833d2840d92b813b5.jpg",
     "title": "Associative Arrays in Bash (AKA Key-Value Dictionaries)",
     "description": "We'll go over how to declare, access, update, delete and loop over them with a real world use case.",
@@ -148,26 +168,6 @@
     "tags": [],
     "type": "video",
     "referenceLink": "https://www.youtube.com/watch?v=HxGC7SS3WWI"
-  },
-  {
-    "thumbnailUrl": "https://curity.io/images/resources/code-examples/code-examples-stackexchange.jpg",
-    "title": "How to check if an output has been spent?",
-    "description": "Using an rpc client (e.g. bitcoin-cli), for a given transaction and index of an output of it, how can I tell if the output is currently an utxo, or if it has already been spent?",
-    "author": "shx2",
-    "authorIconUrl": "https://i.stack.imgur.com/B8PLE.jpg?s=64&g=1",
-    "tags": [],
-    "type": "stackExchange",
-    "referenceLink": "https://bitcoin.stackexchange.com/questions/48504/how-to-check-if-an-output-has-been-spent"
-  },
-  {
-    "thumbnailUrl": "https://www.walletmart.io/wp-content/uploads/2019/09/5d6cbdf84a37b.png",
-    "title": "Support for Output Descriptors in Bitcoin Core",
-    "description": "Since Bitcoin Core v0.17, there is support for Output Descriptors. This is a simple language which can be used to describe collections of output scripts. Supporting RPCs are:",
-    "author": "bitcoinhodler",
-    "authorIconUrl": "https://avatars.githubusercontent.com/u/31543633?s=96&v=4",
-    "tags": [],
-    "type": "documentation",
-    "referenceLink": "https://github.com/bitcoin/bitcoin/blob/master/doc/descriptors.md"
   },
   {
     "thumbnailUrl": "https://www.walletmart.io/wp-content/uploads/2019/09/5d6cbdf84a37b.png",
@@ -198,45 +198,5 @@
     "tags": [],
     "type": "book",
     "referenceLink": "https://github.com/BlockchainCommons/Learning-Bitcoin-from-the-Command-Line/tree/master?tab=readme-ov-file"
-  },
-  {
-    "thumbnailUrl": "",
-    "title": "",
-    "description": "",
-    "author": "",
-    "authorIconUrl": "",
-    "tags": [],
-    "type": "",
-    "referenceLink": ""
-  },
-  {
-    "thumbnailUrl": "",
-    "title": "",
-    "description": "",
-    "author": "",
-    "authorIconUrl": "",
-    "tags": [],
-    "type": "",
-    "referenceLink": ""
-  },
-  {
-    "thumbnailUrl": "",
-    "title": "",
-    "description": "",
-    "author": "",
-    "authorIconUrl": "",
-    "tags": [],
-    "type": "",
-    "referenceLink": ""
-  },
-  {
-    "thumbnailUrl": "",
-    "title": "",
-    "description": "",
-    "author": "",
-    "authorIconUrl": "",
-    "tags": [],
-    "type": "",
-    "referenceLink": ""
   }
 ]

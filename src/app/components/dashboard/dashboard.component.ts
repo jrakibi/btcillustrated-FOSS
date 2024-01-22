@@ -107,6 +107,11 @@ export class DashboardComponent implements OnInit {
         tag: WorkspaceEnum.Tools
       },
       {
+        title: 'Take Notes',
+        imageUrl: 'assets/btcIllustrated/icons/quiz.png',
+        tag: WorkspaceEnum.Notes
+      },
+      {
         title: 'About',
         imageUrl: '',
         tag: WorkspaceEnum.About

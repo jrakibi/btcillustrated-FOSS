@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { trigger, transition, animate, style, query, group } from '@angular/animations';
 import { SlickCarouselComponent } from 'ngx-slick-carousel';
+import { MatDialog } from '@angular/material/dialog';
+import { LnurlPayDialogComponent } from '../shared/lnurl-pay-dialog/lnurl-pay-dialog.component';
 
 declare const twttr: any; // This declares the Twitter object which will be loaded later
 declare var $: any; // Import jQuery
@@ -37,7 +39,9 @@ declare var $: any; // Import jQuery
 export class AboutComponent implements OnInit {
   @ViewChild('missionSection') missionSection!: ElementRef;
 
-  constructor() { }
+  constructor(
+    public dialog: MatDialog
+  ) { }
 
   ngOnInit(): void {
 
@@ -318,6 +322,15 @@ export class AboutComponent implements OnInit {
   ];
 
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(LnurlPayDialogComponent,
+
+    );
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
+  }
 
 }
 

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +27,14 @@ import { AboutComponent } from './components/about/about.component';
 
 import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { NgxTwitterWidgetsModule } from "ngx-twitter-widgets";
+import { InvoiceQrCodeComponent } from './components/shared/invoice-qr-code/invoice-qr-code.component';
+import { LnurlPayDialogComponent } from './components/shared/lnurl-pay-dialog/lnurl-pay-dialog.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { QRCodeModule } from 'angularx-qrcode';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -42,6 +50,10 @@ import { NgxTwitterWidgetsModule } from "ngx-twitter-widgets";
 
 
     TruncatePipe,
+
+    InvoiceQrCodeComponent,
+    LnurlPayDialogComponent,
+
     AboutComponent
   ],
   imports: [
@@ -57,6 +69,17 @@ import { NgxTwitterWidgetsModule } from "ngx-twitter-widgets";
     ReactiveFormsModule,
 
     MatDialogModule,
+
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+
+    MatSnackBarModule,
+    
+    MatInputModule,
+    MatButtonModule,
+    QRCodeModule,
+
     NgxGraphModule,
 
     DragDropModule,
@@ -74,6 +97,9 @@ import { NgxTwitterWidgetsModule } from "ngx-twitter-widgets";
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  entryComponents: [LnurlPayDialogComponent],
+
 })
 export class AppModule { }
