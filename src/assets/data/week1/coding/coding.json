@@ -1,0 +1,128 @@
+{
+  "id": "bitcoin-wallet-tutorial-001",
+  "title": "Bitcoin Wallet Basics: Programming with bitcoinjs-lib",
+  "description": "An interactive tutorial to learn the basics of bitcoin programming using bitcoinjs-lib.",
+  "difficulty": "Medium",
+  "toolsRequired": ["Node.js", "bitcoinjs-lib"],
+  "submissionInstructions": "Provide the completed code for each step as your answer.",
+  "templateFilePath": "/templates/bitcoin-wallet/",
+  "questions": [
+    {
+      "id": "setup-env",
+      "title": "Environment Setup",
+      "isLink": false,
+      "content": "Install Node.js and bitcoinjs-lib. Use the npm command to install the bitcoinjs-lib package.",
+      "answerType": "multi-line",
+      "solutionCode": "npm install bitcoinjs-lib",
+      "codeMetadata": {
+        "language": "shell"
+      },
+      "hints": [
+        "Use the official Node.js website to download the installer.",
+        "Run 'npm i -g bitcoinjs-lib' in your terminal to install the package."
+      ],
+      "examplesPath": ["/examples/setup/"]
+    },
+    {
+      "id": "generate-key",
+      "title": "Key Generation",
+      "isLink": false,
+      "content": "Generate a Bitcoin keypair and extract the public key using bitcoinjs-lib.",
+      "answerType": "code",
+      "solutionCode": "const bitcoin = require('bitcoinjs-lib');\nconst keyPair = bitcoin.ECPair.makeRandom({ network: bitcoin.networks.testnet });\nconst { publicKey } = keyPair;",
+      "codeMetadata": {
+        "language": "javascript",
+        "starterCode": "const bitcoin = require('bitcoinjs-lib');\nconst keyPair = bitcoin.ECPair.makeRandom({ network: bitcoin.networks.testnet });",
+        "validatorFunction": "validateKeyPair"
+      },
+      "hints": [
+        "The makeRandom function will help generate a new key pair."
+      ],
+      "examplesPath": ["/examples/key-generation/"]
+    },
+    {
+      "id": "create-address",
+      "title": "Create an Address",
+      "isLink": false,
+      "content": "Create a P2PKH address from the generated public key.",
+      "answerType": "code",
+      "solutionCode": "const bitcoin = require('bitcoinjs-lib');\nconst keyPair = bitcoin.ECPair.makeRandom({ network: bitcoin.networks.testnet });\nconst { publicKey } = keyPair;\nconst { address } = bitcoin.payments.p2pkh({ pubkey: publicKey, network: bitcoin.networks.testnet });",
+      "codeMetadata": {
+        "language": "javascript",
+        "starterCode": "const { address } = bitcoin.payments.p2pkh({ pubkey: keyPair.publicKey, network: bitcoin.networks.testnet });",
+        "validatorFunction": "validateAddress"
+      },
+      "hints": [
+        "Use the bitcoin.payments.p2pkh function to create the address."
+      ],
+      "examplesPath": ["/examples/create-address/"]
+    },
+    {
+      "id": "receive-testnet",
+      "title": "Receive Testnet Bitcoin",
+      "isLink": true,
+      "contentPath": "/content/receive-testnet.md",
+      "content": "Receive testnet Bitcoin to your newly created address using a testnet faucet.",
+      "answerType": "single-line",
+      "solutionCode": "const bitcoin = require('bitcoinjs-lib');\nconst keyPair = bitcoin.ECPair.makeRandom({ network: bitcoin.networks.testnet });\nconst { publicKey } = keyPair;\nconst { address } = bitcoin.payments.p2pkh({ pubkey: publicKey, network: bitcoin.networks.testnet });\n// Use a testnet faucet to send Bitcoin to the above address",
+      "hints": [
+        "Testnet Bitcoin has no real value and is used for testing.",
+        "Use a public testnet faucet to send Bitcoin to your address."
+      ],
+      "examplesPath": ["/examples/receive-testnet/"]
+    },
+    {
+      "id": "build-transaction",
+      "title": "Build a Transaction",
+      "isLink": false,
+      "content": "Construct a transaction with one input (the received testnet Bitcoin) and one output (the destination address).",
+      "answerType": "code",
+      "solutionCode": "const bitcoin = require('bitcoinjs-lib');\nconst keyPair = bitcoin.ECPair.makeRandom({ network: bitcoin.networks.testnet });\nconst { publicKey } = keyPair;\nconst { address } = bitcoin.payments.p2pkh({ pubkey: publicKey, network: bitcoin.networks.testnet });\nconst txb = new bitcoin.TransactionBuilder(bitcoin.networks.testnet);\n// Add inputs and outputs to the transaction builder here",
+      "codeMetadata": {
+        "language": "javascript",
+        "starterCode": "const txb = new bitcoin.TransactionBuilder(bitcoin.networks.testnet);",
+        "validatorFunction": "validateTransaction"
+      },
+      "hints": [
+        "The transaction will consume the UTXO received from the faucet."
+      ],
+      "examplesPath": ["/examples/build-transaction/"]
+    },
+    {
+      "id": "sign-transaction",
+      "title": "Sign the Transaction",
+      "isLink": false,
+      "content": "Sign the transaction input with your private key.",
+      "answerType": "code",
+      "solutionCode": "const bitcoin = require('bitcoinjs-lib');\nconst keyPair = bitcoin.ECPair.makeRandom({ network: bitcoin.networks.testnet });\nconst { publicKey } = keyPair;\nconst { address } = bitcoin.payments.p2pkh({ pubkey: publicKey, network: bitcoin.networks.testnet });\nconst txb = new bitcoin.TransactionBuilder(bitcoin.networks.testnet);\n// Add inputs and outputs to the transaction builder here\ntxb.sign(0, keyPair);",
+      "codeMetadata": {
+        "language": "javascript",
+        "starterCode": "txb.sign(0, keyPair);",
+        "validatorFunction": "validateSignedTransaction"
+      },
+      "hints": [
+        "Each input in a transaction must be signed for the transaction to be valid."
+      ],
+      "examplesPath": ["/examples/sign-transaction/"]
+    },
+    {
+      "id": "send-transaction",
+      "title": "Broadcast the Transaction",
+      "isLink": false,
+      "content": "Send the signed transaction to the testnet Bitcoin network.",
+      "answerType": "code",
+      "solutionCode": "const bitcoin = require('bitcoinjs-lib');\nconst keyPair = bitcoin.ECPair.makeRandom({ network: bitcoin.networks.testnet });\nconst { publicKey } = keyPair;\nconst { address } = bitcoin.payments.p2pkh({ pubkey: publicKey, network: bitcoin.networks.testnet });\nconst txb = new bitcoin.TransactionBuilder(bitcoin.networks.testnet);\n// Add inputs and outputs to the transaction builder here\ntxb.sign(0, keyPair);\nconst transactionHex = txb.build().toHex();\n// Broadcast the transaction hex to the Bitcoin testnet network",
+      "codeMetadata": {
+        "language": "javascript",
+        "starterCode": "const transactionHex = txb.build().toHex();",
+        "validatorFunction": "validateBroadcast"
+      },
+      "hints": [
+        "Convert the transaction to hex format before broadcasting.",
+        "Use a testnet block explorer's broadcast transaction feature."
+      ],
+      "examplesPath": ["/examples/send-transaction/"]
+    }
+    
+  ]
+}

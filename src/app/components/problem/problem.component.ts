@@ -27,7 +27,7 @@ export class ProblemComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.dataService.fetchData<any>('assets/data/week0/problem/problem.json').subscribe(
+    this.dataService.fetchData<any>('assets/data/week1/problem/problem.json').subscribe(
       data => {
         this.currentProblem = data
         this.loading = false;

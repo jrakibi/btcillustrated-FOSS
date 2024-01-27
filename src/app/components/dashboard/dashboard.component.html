@@ -23,7 +23,7 @@
                     <div *ngIf="!week.imageUrl" class="fallback-image">No Image</div>
                 </div>
                 <!-- Lock overlay for locked modules -->
-                <div *ngIf="i > 0" class="locked-overlay">
+                <div *ngIf="week.locked" class="locked-overlay">
                     <!-- Replace with an img tag pointing to your lock image -->
                     <img src="assets/dashboard/lock.png" alt="Locked" />
                 </div>
@@ -48,7 +48,7 @@
                             d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 246.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160zm352-160l-160 160c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L301.3 256 438.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0z" />
                     </svg>
                     <i class="fas fa-brain"></i>
-                    <span class="mind-map-title">Week 0: RPC Scavenger Hunt
+                    <span class="mind-map-title">Build you first Bitcoin Wallet
                     </span>
                 </div>
                 <div class="header-center">

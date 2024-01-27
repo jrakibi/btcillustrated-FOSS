@@ -1,0 +1,93 @@
+[
+  {
+    "icon": "fa-cog",
+    "title": "Bitcoin Script IDE",
+    "description": "A Bitcoin Script IDE to facilitate the learning, testing, and teaching of Bitcoin Script.",
+    "footerText": "@Siminchen",
+    "headerIconUrl": "assets/tools/icons/bitcoinIDE.png",
+    "footerIconUrl": "assets/tools/icons/bitcoinIDE_builder.png",
+    "authorLink": "https://github.com/siminchen",
+    "projectLink": "https://siminchen.github.io/bitcoinIDE/build/editor.html",
+    "color": "#f79322"
+  },
+  {
+    "icon": "fa-cog",
+    "title": "jqterm",
+    "description": "A visual and real-time interface for the jq tool - for manipulating, filtering and transforming JSON.",
+    "footerText": "@Remy",
+    "headerIconUrl": "assets/tools/icons/jqterm.png",
+    "footerIconUrl": "assets/tools/icons/jqterm_builder.jpeg",
+    "authorLink": "https://github.com/remy",
+    "projectLink": "https://jqterm.com/?query=.",
+    "color": "#55B685"
+  },
+  {
+    "icon": "fa-cog",
+    "title": "Opcode Explained",
+    "description": "Documenting bitcoin opcodes, one at a time.",
+    "footerText": "@thunderbiscuit",
+    "headerIconUrl": "assets/tools/icons/opcodeExplained.png",
+    "footerIconUrl": "assets/tools/icons/opcodeExplained_builder.jpeg",
+    "authorLink": "https://github.com/thunderbiscuit",
+    "projectLink": "https://opcodeexplained.com/",
+    "color": "#55B685"
+  },
+  {
+    "icon": "fa-cog",
+    "title": "ChatBTC",
+    "description": "Learn about bitcoin technology and history",
+    "footerText": "@The_Bitcoin_Dev_Project",
+    "headerIconUrl": "assets/tools/icons/chatbtc.png",
+    "footerIconUrl": "assets/tools/icons/chatbtc_builder.png",
+    "authorLink": "https://bitcoindevs.xyz/",
+    "projectLink": "https://chat.bitcoinsearch.xyz/",
+    "color": "#EBB063"
+  },
+
+  {
+    "icon": "fa-cog",
+    "title": "Bitcoin Stack Exchange",
+    "description": "Bitcoin Stack Exchange is a question and answer site for Bitcoin users, developers, and enthusiasts",
+    "footerText": "@BitcoinStackExchange",
+    "headerIconUrl": "assets/tools/icons/stackExchange.png",
+    "footerIconUrl": "assets/tools/icons/stackExchange_moderator.png",
+    "authorLink": "https://murch.one/",
+    "projectLink": "https://bitcoin.stackexchange.com/",
+    "color": "#EBB063"
+  },
+
+  
+  {
+    "icon": "fa-cog",
+    "title": "AI Tutor",
+    "description": "Your Bitcoin AI tutor: Get any Bitcoin concept explained like you're 5 yo (coming soon) ",
+    "footerText": "@BTCillustrated",
+    "headerIconUrl": "assets/tools/icons/btcillustrated.png",
+    "footerIconUrl": "assets/tools/icons/btcillustrated_builder.jpeg",
+    "authorLink": "https://twitter.com/BTCillustrated",
+    "projectLink": "https://btc-illustrated.com/",
+    "color": "#fcdddd"
+  },
+  {
+    "icon": "fa-cog",
+    "title": "Tx Color Coder",
+    "description": "A tool for understanding bitcoin transaction serialization",
+    "footerText": "@DariusParvin",
+    "headerIconUrl": "assets/tools/icons/txColorCoder.png",
+    "footerIconUrl": "assets/tools/icons/txColorCoder_builder.jpeg",
+    "authorLink": "https://github.com/DariusParvin",
+    "projectLink": "https://github.com/DariusParvin/bitcoin-tx-color-coder",
+    "color": "#000"
+  },
+  {
+    "icon": "fa-cog",
+    "title": "devhints.io",
+    "description": "This is a quick reference to getting started with Bash scripting.",
+    "footerText": "@devhints.io",
+    "headerIconUrl": "https://pbs.twimg.com/profile_images/923443851456528385/ukWFr1dM_400x400.jpg",
+    "footerIconUrl": "https://ricostacruz.com/tilnotes.assets/rstacruz.GZBW5QT0_1FGtWc.webp",
+    "authorLink": "https://devhints.io/bash#dictionaries",
+    "projectLink": "https://devhints.io/bash#dictionaries",
+    "color": "#a06ed7"
+  }
+]

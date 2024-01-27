@@ -1,0 +1,27 @@
+  {
+    "title": "Build Your Own Bitcoin Wallet: An Interactive Tutorial",
+    "overview": "For this exercise, Build your own Bitcoin wallet through an interactive step-by-step tutorial. ",
+        "sections": [
+          {
+            "title":"Objectives:",
+            "isLink": true,
+            "path": "assets/data/week1/problem/readme1.md"
+          },
+          {
+            "title":"Prerequisites:",
+            "isLink": true,
+            "path": "assets/data/week1/problem/readme2.md"
+          },
+          {
+            "title":"Learning Outcomes:",
+            "isLink": true,
+            "path": "assets/data/week1/problem/readme3.md"
+          },
+          {
+            "title":"Let's Begin:",
+            "isLink": true,
+            "path": "assets/data/week1/problem/readme4.md"
+          }
+             
+    ]
+  }

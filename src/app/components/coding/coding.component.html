@@ -2,7 +2,7 @@
   <div class="header">
     <div class="exercise-buttons">
       <button *ngFor="let question of currentExercise?.questions; let i = index" (click)="loadQuestion(question)">
-        Question {{ i + 1 }}
+        {{i}}: {{question.title}}
       </button>
     </div>
     <div class="language-selector">
@@ -47,12 +47,15 @@
         
         
 
-        <div class="examples" *ngIf="exampleHtml !=null">
-          <span class="title-coding-section">Examples</span>
-          <div class="markdown-body" [innerHTML]="exampleHtml">
-            <!-- README content will be rendered here -->
+        <ng-container *ngIf="currentQuestion.examplesPath.length > 0">
+          <div class="examples" *ngIf="exampleHtml !=null">
+            <span class="title-coding-section">Examples</span>
+            <div class="markdown-body" [innerHTML]="exampleHtml">
+              <!-- README content will be rendered here -->
+            </div>
           </div>
-        </div>
+        </ng-container>
+        
 
     </div>
   </div>
@@ -60,7 +63,7 @@
     <ngx-monaco-editor [options]="editorOptions" [(ngModel)]="code" (onInit)="onEditorInit($event)">
     </ngx-monaco-editor>
     <span class="execution-disclaimer">* Code execution not currently available. Feature in development.</span>
-    <div class="output">
+    <div class="output" *ngIf="currentQuestion?.expectedOutput">
       <h3>Expected Output</h3>
       <div class="toggle-container">
         <input type="checkbox" id="toggleOutputCheckbox" (change)="toggleOutputVisibility()" hidden>

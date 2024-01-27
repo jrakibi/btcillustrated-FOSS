@@ -18,8 +18,8 @@ export interface Question {
   contentPath?: string
   answerType: 'single-line' | 'multi-line' | 'code';
   expectedOutput?: string;
-  // For 'code' type, we might specify the language and other coding settings
   codeMetadata?: CodeMetadata;
+  solutionCode?: string;
   hints?: string[]
   examplesPath: string[]
 }

@@ -50,14 +50,14 @@ export class DashboardComponent implements OnInit {
       {
         title: 'Week 0',
         imageUrl: 'assets/btcIllustrated/mindmap/test.png',
-        tag: 'Week 0',
-        locked: false
+        tag: 'Install Bitcoin Core',
+        locked: true
       },
       {
         title: 'Week 1',
         imageUrl: 'assets/btcIllustrated/mindmap/test2.png',
-        tag: 'Week 1',
-        locked: true
+        tag: 'Build your first Wallet',
+        locked: false
       },
       {
         title: 'Week 2',
@@ -147,7 +147,7 @@ export class DashboardComponent implements OnInit {
     }
 
 
-    this.activeWorkspace = this.Workspace.Coding
+    this.activeWorkspace = this.Workspace.Problem
     this.appContext.storeActiveWorkspace(this.activeWorkspace)
     // Navigate to the 'app-problem' workspace or handle as needed
     // Assuming 'app-problem' is a route you have set up in your routing module

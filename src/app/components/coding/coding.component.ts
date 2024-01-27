@@ -15,7 +15,7 @@ export class CodingComponent implements OnInit {
   isLoading: boolean = false;
   code: string = '// Type your code here';
   selectedLanguage: string = 'rust'; // default to 'rust'
-  languages: string[] = ['rust', 'go', 'cpp', 'shell']; // updated languages
+  languages: string[] = ['rust', 'go', 'javascript', 'cpp', 'shell']; // updated languages
   editorOptions = { theme: 'vs-dark', language: this.selectedLanguage };
   weekNumber: number = 0
   loading: boolean = true; // Initialize as true to show the loading indicator
@@ -31,7 +31,7 @@ export class CodingComponent implements OnInit {
     // this.currentExercise = this.exercises[0];
   }
   ngOnInit(): void {
-    this.dataService.fetchData<any>('assets/data/week0/coding/coding.json').subscribe(
+    this.dataService.fetchData<any>('assets/data/week1/coding/coding.json').subscribe(
       data => {
         this.currentExercise = data
         this.loading = false;
@@ -64,7 +64,8 @@ export class CodingComponent implements OnInit {
   
   loadQuestion(question: Question) {
     this.currentQuestion = question; // Set the current question
-    this.code = question.codeMetadata?.starterCode || '// Type your code here'; // Load the code template if it exists
+    // this.code = question.codeMetadata?.starterCode || '// Type your code here'; // Load the code template if it exists
+    this.code = question?.solutionCode || '// Type your code here'; // Load the code template if it exists
     
     // If the question requires a specific programming language, update the editor options
     if (question.codeMetadata?.language) {
